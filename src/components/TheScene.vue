@@ -16,7 +16,7 @@
 
 <template>
   <a-scene
-    background="color: black;"
+    background="color: white;"
     :webxr="`
       requiredFeatures: local-floor;
       referenceSpaceType: local-floor;
@@ -54,10 +54,12 @@
     </a-assets>
 
     <template v-if="allAssetsLoaded">
-      <TheMainRoom :scale="scale" />
+      <!--<TheMainRoom :scale="scale" />
       <TheLifeCubeRoom />
-      <ThePhysicRoom />
-    </template>
+      <ThePhysicRoom />-->
+      <!-- <a-plane color="red" width="100" height="100" rotation="-90 0 0"></a-plane> -->
+      <a-entity light="type: ambient; color: #BBB"></a-entity>
+      <a-ocean color="#92E2E2" width="25" depth="25" density="15" speed="2"></a-ocean>    </template>
 
     <TheCameraRig />
 
