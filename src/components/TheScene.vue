@@ -15,8 +15,9 @@
 </script>
 
 <template>
-  <a-scene
-    background="color: white;"
+  <a-scene stats
+    background="color: #80C2FF;"
+    fog="type: linear; color: #80C2FF; near:1; far:10"
     :webxr="`
       requiredFeatures: local-floor;
       referenceSpaceType: local-floor;
@@ -59,7 +60,9 @@
       <ThePhysicRoom />-->
       <!-- <a-plane color="red" width="100" height="100" rotation="-90 0 0"></a-plane> -->
       <a-entity light="type: ambient; color: #BBB"></a-entity>
-      <a-ocean color="#92E2E2" width="25" depth="25" density="15" speed="2"></a-ocean>    </template>
+      <a-ocean amplitude="0.1" amplitude-variance="0.05" color="#92E2E2" width="10" height="10" depth="25" density="15" speed="0.1"></a-ocean> 
+      <a-ocean amplitude="0.09" amplitude-variance="0.1" color="#8DE1E1" width="10" height="10" depth="25" density="10" speed="0.9"></a-ocean>       
+    </template>
 
     <TheCameraRig />
 
