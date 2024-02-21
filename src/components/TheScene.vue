@@ -1,25 +1,41 @@
 <script setup>
-  import { ref } from 'vue';
-
+  import { ref, onMounted } from 'vue';
   import TheCameraRig from './TheCameraRig.vue';
   import TheMainRoom from './TheMainRoom.vue';
   import TheLifeCubeRoom from './TheLifeCubeRoom.vue';
   import ThePhysicRoom from './ThePhysicRoom.vue';
   //ne pas oublier d'import  le duplicate-me.js
   // import './aframe/duplicate-me.js'
+  import '../aframe/multiplier.js'
+  import { decalage } from '../utils/decalage.js';
 
   defineProps({
     scale: Number,
     overlaySelector: String,
   });
 
+  const applyDecalageToElements = () => {
+  document.querySelectorAll('[decalage]').forEach(el => {
+    const aframeEl = el.object3D; // Assurez-vous que ceci est la bonne référence à l'élément A-Frame
+    decalage(aframeEl); // Applique le décalage
+  });
+};
+
+onMounted(() => {
+  // Vous pourriez vouloir attendre un certain événement ou condition
+  // Pour cet exemple, on applique directement après montage
+  applyDecalageToElements();
+});
+
   const allAssetsLoaded = ref(false);
+
 </script>
 
 <template>
   <a-scene stats
-    background="color: #80C2FF;"
-    fog="type: linear; color: #80C2FF; near:1; far:10"
+    Abackground="color: #80C2FF;"
+    background="color: #DDDDDD;"
+    Afog="type: linear; color: #80C2FF; near:1; far:10"
     :webxr="`
       requiredFeatures: local-floor;
       referenceSpaceType: local-floor;
@@ -61,14 +77,36 @@
       <TheLifeCubeRoom />
       <ThePhysicRoom />-->
       <!-- <a-plane color="red" width="100" height="100" rotation="-90 0 0"></a-plane> -->
-      <a-entity light="type: ambient; color: #BBB"></a-entity>
-      <a-ocean amplitude="0.1" amplitude-variance="0.05" color="#92E2E2" width="10" height="10" depth="25" density="15" speed="0.1"></a-ocean> 
-      <a-ocean amplitude="0.09" amplitude-variance="0.1" color="#8DE1E1" width="10" height="10" depth="25" density="10" speed="0.9"></a-ocean>
       
+      <!-- #Exercice 1 -->
+      <!-- <a-entity light="type: ambient; color: #BBB"></a-entity>
+      <a-ocean amplitude="0.1" amplitude-variance="0.05" color="#92E2E2" width="10" height="10" depth="25" density="15" speed="0.1"></a-ocean> 
+      <a-ocean amplitude="0.09" amplitude-variance="0.1" color="#8DE1E1" width="10" height="10" depth="25" density="10" speed="0.9"></a-ocean> -->
+      
+      <!-- #Exercice 2 -->
+      <a-plane opacity="0.5" color="#82909D" width="100" height="100" rotation="-90 0 0"></a-plane>
+      <a-box width="0.3" height="0.3" depth="0" color="red" position="0 0.5 -5" rotation="-90 0 0"></a-box>
+     <a-entity>
+      <a-box
+        multiplier
+        width="0.3"
+        height="0.3"
+        depth="0.3"
+        color="yellow"
+        position ="0 0 -5"
+        rotation="0 0 0"
+      ></a-box>
+    </a-entity>
+  
+
+      <!-- #Théorie pour dupplicate une entité -->
       <!-- ici on peut appelé notre asstets avec a-entity. Il est possible d'ajouter l'attribut duplicate-me au a-entity avec l'id de l'asset correspondant 
       au lieu de mettre un id à entity mieux vaut le mettre un "data-id" surtout si on a l'élément plusieurs fois, en l'occurence ici on veut le duppliquer
       -->
+
+      <!-- look-at="target: [camera]"-->
       
+
     </template>
 
     <TheCameraRig />
