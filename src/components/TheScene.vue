@@ -5,6 +5,8 @@
   import TheMainRoom from './TheMainRoom.vue';
   import TheLifeCubeRoom from './TheLifeCubeRoom.vue';
   import ThePhysicRoom from './ThePhysicRoom.vue';
+  //ne pas oublier d'import  le duplicate-me.js
+  // import './aframe/duplicate-me.js'
 
   defineProps({
     scale: Number,
@@ -61,7 +63,12 @@
       <!-- <a-plane color="red" width="100" height="100" rotation="-90 0 0"></a-plane> -->
       <a-entity light="type: ambient; color: #BBB"></a-entity>
       <a-ocean amplitude="0.1" amplitude-variance="0.05" color="#92E2E2" width="10" height="10" depth="25" density="15" speed="0.1"></a-ocean> 
-      <a-ocean amplitude="0.09" amplitude-variance="0.1" color="#8DE1E1" width="10" height="10" depth="25" density="10" speed="0.9"></a-ocean>       
+      <a-ocean amplitude="0.09" amplitude-variance="0.1" color="#8DE1E1" width="10" height="10" depth="25" density="10" speed="0.9"></a-ocean>
+      
+      <!-- ici on peut appelé notre asstets avec a-entity. Il est possible d'ajouter l'attribut duplicate-me au a-entity avec l'id de l'asset correspondant 
+      au lieu de mettre un id à entity mieux vaut le mettre un "data-id" surtout si on a l'élément plusieurs fois, en l'occurence ici on veut le duppliquer
+      -->
+      
     </template>
 
     <TheCameraRig />
