@@ -9,6 +9,7 @@
 <template>
   <a-entity
     id="camera-rig"
+    rotation="0 180 0"
     movement-controls="camera: #head;"
     disable-in-vr="component: movement-controls;"
   >
