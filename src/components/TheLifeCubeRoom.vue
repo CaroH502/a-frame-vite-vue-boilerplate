@@ -8,6 +8,19 @@
     gltf-model="#store"
     position="0 100.3 0"
   >
+  <a-entity
+    gltf-model="#vendeur"
+    position="-3.3 0.20 -0.3"
+    rotation="0 90 0"
+  />
+
+  <a-entity
+    gltf-model="#potion"
+    position="-3 1.1 -0.8"
+    rotation="0 90 0"
+    scale="0.3 0.3 0.3"
+  />
+
     <PortalTeleporter
       label="Back to main room"
       material="src: #room-gol-out-texture"

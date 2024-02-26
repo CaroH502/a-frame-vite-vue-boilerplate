@@ -76,7 +76,8 @@ const allAssetsLoaded = ref(false);
     <a-assest-item id="portal" src="assets/portal.glb"></a-assest-item>
     <a-assest-item id="dragon" src="assets/dragon.glb"></a-assest-item>
     <a-assest-item id="store" src="assets/store.glb"></a-assest-item>
-    
+    <a-assest-item id="vendeur" src="assets/vendeur.glb"></a-assest-item>
+    <a-assest-item id="potion" src="assets/potion.glb"></a-assest-item>
   </a-assets>
   
   <template v-if="allAssetsLoaded">
