@@ -100,6 +100,17 @@ const allAssetsLoaded = ref(false);
     :rot="180"
     :y="200"
     /> 
+
+    <PortalTeleporter
+    id="portal-store"
+      label="In the herborsite"
+      material="src: #room-physic-texture"
+      life-like-automaton="resolution: 256;"
+      position="-57.8 1.5 -9.78"
+      rotation="0 -30 3"
+      :rot="180"
+      :y="100"
+    />
     
     <a-entity
     gltf-model="#dragon"
@@ -112,8 +123,8 @@ const allAssetsLoaded = ref(false);
 
 
 
-<!--<TheMainRoom :scale="scale" />
-  <TheLifeCubeRoom /> -->
+<!--<TheMainRoom :scale="scale" />-->
+  <TheLifeCubeRoom /> 
   <ThePhysicRoom />
   <!-- <a-plane color="red" width="100" height="100" rotation="-90 0 0"></a-plane> -->
   

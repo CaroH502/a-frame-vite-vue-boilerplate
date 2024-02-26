@@ -12,7 +12,7 @@
     position="0 199.5 0"
   >
 
-    <a-sphere v-for="index in 3" :key="index"
+    <!--<a-sphere v-for="index in 3" :key="index"
       physx-body="type: dynamic"
       physx-grabbable
       physx-force-pushable
@@ -20,7 +20,7 @@
       radius="0.25"
       color="purple"
       clickable
-    ></a-sphere>
+    ></a-sphere>-->
 
     <PortalTeleporter
       label="Back to the village"
@@ -28,7 +28,7 @@
       position="0 2.1 4.12"
       rotation="0 180 0"
       :rot="90"
-      :y="0"
+      :y="-1500"
     />
   </a-entity>
 
