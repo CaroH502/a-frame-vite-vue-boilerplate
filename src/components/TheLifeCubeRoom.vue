@@ -4,19 +4,18 @@
 </script>
 
 <template>
-  <a-box
-    life-like-automaton="backSide: true;"
-    position="0 102 0"
-    depth="4" height="4" width="4"
+  <a-entity
+    gltf-model="#store"
+    position="0 100.3 0"
   >
     <PortalTeleporter
       label="Back to main room"
       material="src: #room-gol-out-texture"
-      position="0 -0.5 1.9"
-      rotation="0 180 0"
+      position="0 1 0"
+      rotation="0 -90 0"
       :rot="0"
     />
-  </a-box>
+  </a-entity>
 
   <!-- Life Cube room navigation mesh -->
   <a-entity

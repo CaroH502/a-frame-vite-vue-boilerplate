@@ -75,6 +75,7 @@ const allAssetsLoaded = ref(false);
     <a-assest-item id="village" src="assets/medieval_castle_with_village.glb"></a-assest-item>
     <a-assest-item id="portal" src="assets/portal.glb"></a-assest-item>
     <a-assest-item id="dragon" src="assets/dragon.glb"></a-assest-item>
+    <a-assest-item id="store" src="assets/store.glb"></a-assest-item>
     
   </a-assets>
   
@@ -108,7 +109,7 @@ const allAssetsLoaded = ref(false);
       life-like-automaton="resolution: 256;"
       position="-57.8 1.5 -9.78"
       rotation="0 -30 3"
-      :rot="180"
+      :rot="90"
       :y="100"
     />
     
