@@ -33,6 +33,14 @@
       rotation="0 30 0"
       :rot="90"
     />
+
+  <a-entity
+  id="oeuf"
+    gltf-model="#oeuf"
+    position="0.184 0.005 -0.020"
+    rotation="0 30 0"
+    scale="-0.001 -0.001 -0.001">
+  </a-entity>
   </a-entity>
 
   <!-- Physic room navigation mesh -->
