@@ -82,85 +82,12 @@ const allAssetsLoaded = ref(false);
   </a-assets>
   
   <template v-if="allAssetsLoaded">
-    <a-entity
-    gltf-model="#village"
-    position="75 -0.5 11"
-    rotation="0 0 0"
-    scale="0.99 0.99 0.99">
-    <a-entity
-    gltf-model="#portal"
-    position="-74 0 25"
-    rotation="0 0 0"
-    scale="0.6 0.6 0.6">
-    ></a-entity>
     
-    <PortalTeleporter
-    label="Get the dragon's"
-    scale="1.2 1.3 1.2"
-    life-like-automaton="resolution: 256;"
-    position="-72.15 1.5 25"
-    rotation="0 -180 0"
-    :rot="180"
-    :y="200"
-    /> 
-
-    <PortalTeleporter
-    id="portal-store"
-      label="In the herborsite"
-      material="src: #room-physic-texture"
-      life-like-automaton="resolution: 256;"
-      position="-57.8 1.5 -9.78"
-      rotation="0 -30 3"
-      :rot="90"
-      :y="100"
-    />
-    
-    <a-entity
-    gltf-model="#dragon"
-    position="-74.15 3 20"
-    rotation="0 160 0"
-    scale="0.015 0.015 0.015">
-  </a-entity>
-</a-entity>
-
-
-
-
-<!--<TheMainRoom :scale="scale" />-->
-  <TheLifeCubeRoom /> 
-  <ThePhysicRoom />
-  <!-- <a-plane color="red" width="100" height="100" rotation="-90 0 0"></a-plane> -->
+    <TheMainRoom :scale="scale" />
+    <TheLifeCubeRoom /> 
+    <ThePhysicRoom />
+  </template>
+  <TheCameraRig />
   
-  <!-- #Exercice 1 -->
-  <!-- <a-entity light="type: ambient; color: #BBB"></a-entity>
-    <a-ocean amplitude="0.1" amplitude-variance="0.05" color="#92E2E2" width="10" height="10" depth="25" density="15" speed="0.1"></a-ocean> 
-    <a-ocean amplitude="0.09" amplitude-variance="0.1" color="#8DE1E1" width="10" height="10" depth="25" density="10" speed="0.9"></a-ocean> -->
-    
-    <!-- #Exercice 2 
-      <a-plane opacity="0.5" color="#82909D" width="100" height="100" rotation="-90 0 0"></a-plane>
-      <a-box width="0.3" height="0.3" depth="0" color="red" position="0 0.5 -5" rotation="-90 0 0"></a-box>
-      <a-entity>
-        <a-box
-        multiplier
-        width="0.3"
-        
-        height="0.3"
-        depth="0.3"
-        color="yellow"
-        position ="0 0 -5"
-        rotation="0 0 0"
-        ></a-box>
-      </a-entity>-->
-      
-      <!-- #Théorie pour dupplicate une entité -->
-      <!-- ici on peut appelé notre asstets avec a-entity. Il est possible d'ajouter l'attribut duplicate-me au a-entity avec l'id de l'asset correspondant 
-        au lieu de mettre un id à entity mieux vaut le mettre un "data-id" surtout si on a l'élément plusieurs fois, en l'occurence ici on veut le duppliquer
-      -->
-      
-      <!-- look-at="target: [camera]"-->
-      
-    </template>
-    <TheCameraRig />
-    
-  </a-scene>
+</a-scene>
 </template>

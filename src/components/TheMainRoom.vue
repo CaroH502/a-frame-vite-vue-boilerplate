@@ -16,7 +16,49 @@ import ExitDoor from "./ExitDoor.vue";
 </script>
 
 <template>
-  <a-entity
+
+<a-entity
+    gltf-model="#village"
+    position="75 -0.5 11"
+    rotation="0 0 0"
+    scale="0.99 0.99 0.99">
+    <a-entity
+    gltf-model="#portal"
+    position="-74 0 25"
+    rotation="0 0 0"
+    scale="0.6 0.6 0.6">
+    ></a-entity>
+    
+    <PortalTeleporter
+    label="Get the dragon's"
+    scale="1.2 1.3 1.2"
+    life-like-automaton="resolution: 256;"
+    position="-72.15 1.5 25"
+    rotation="0 -180 0"
+    :rot="180"
+    :y="200"
+    /> 
+
+    <PortalTeleporter
+    id="portal-store"
+      label="In the herborsite"
+      material="src: #room-physic-texture"
+      life-like-automaton="resolution: 256;"
+      position="-57.8 1.5 -9.78"
+      rotation="0 -30 3"
+      :rot="90"
+      :y="100"
+    />
+    
+    <a-entity
+    gltf-model="#dragon"
+    position="-74.15 3 20"
+    rotation="0 160 0"
+    scale="0.015 0.015 0.015">
+  </a-entity>
+</a-entity>
+
+  <!-- <a-entity
     gltf-model="#room"
     rotation="0 90 0"
     position="0 0 -5"
@@ -75,7 +117,7 @@ import ExitDoor from "./ExitDoor.vue";
 
   <ExitDoor />
 
-  <!-- Main room navigation mesh  -->
+  
   <a-entity
     geometry="primitive: plane; height: 13.5; width: 6"
     position="0 0.01 -4.75"
@@ -91,6 +133,6 @@ import ExitDoor from "./ExitDoor.vue";
     data-role="nav-mesh"
     material="color: red"
     visible="false"
-  ></a-entity>
+  ></a-entity> -->
 
 </template>

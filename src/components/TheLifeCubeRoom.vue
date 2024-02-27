@@ -31,13 +31,13 @@
   </a-entity>
 
   <!-- Life Cube room navigation mesh -->
-  <a-entity
+  <!-- <a-entity
     data-role="nav-mesh"
     geometry="primitive: plane; height: 3; width: 3"
     position="0 100.01 0"
     rotation="-90 0 0"
     material="color: green"
     visible="false"
-  ></a-entity>
+  ></a-entity> -->
 
 </template>
