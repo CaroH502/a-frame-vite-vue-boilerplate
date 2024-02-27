@@ -4,7 +4,7 @@ import TheCameraRig from './TheCameraRig.vue';
 import PortalTeleporter from './PortalTeleporter.vue';
 import TheMainRoom from './TheMainRoom.vue';
 import Herboriste from './Herboriste.vue';
-import ThePhysicRoom from './ThePhysicRoom.vue';
+import Mountains from './Mountains.vue';
 //ne pas oublier d'import  le duplicate-me.js
 // import './aframe/duplicate-me.js'
 import '../aframe/multiplier.js'
@@ -86,7 +86,7 @@ const allAssetsLoaded = ref(false);
     
     <TheMainRoom :scale="scale" />
     <Herboriste /> 
-    <ThePhysicRoom />
+    <Mountains />
   </template>
   <TheCameraRig />
   
