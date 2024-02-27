@@ -30,10 +30,12 @@ defineProps({
   ></a-entity>
   
   <PortalTeleporter
-  label="Get the dragon's"
+  label="Get the dragon's
+  Click to enter"
   scale="1.2 1.3 1.2"
   life-like-automaton="resolution: 256;"
-  position="-72.15 1.5 25"
+  position="-72.15 1.5 24"
+  material="opacity: 0.0; transparent: true"
   rotation="0 -180 0"
   :rot="180"
   :y="200.5"
@@ -41,8 +43,9 @@ defineProps({
   
   <PortalTeleporter
   id="portal-store"
-  label="In the herborsite"
-  material="color: red"
+  label="In the herboriste
+  Click to enter"
+  material="opacity: 0.0; transparent: true"
   position="-57.8 1.7 -9.78"
   rotation="0 -30 3"
   :rot="90"
