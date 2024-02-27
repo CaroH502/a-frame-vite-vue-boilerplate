@@ -35,16 +35,6 @@
     />
   </a-entity>
 
-  <a-entity
-  id="nav-mesh-mountains"
-    geometry="primitive: plane; height: 90; width: 90"
-    position="33 199.5 4"
-    rotation="-90 0 0"
-    data-role="nav-mesh"
-    material="color: blue"
-    visible="false"
-  ></a-entity>
-
   <!-- Physic room navigation mesh -->
   <!--< a-entity
     geometry="primitive: plane; height: 7; width: 7"
