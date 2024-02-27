@@ -25,10 +25,12 @@
     ></a-sphere>-->
 
     <PortalTeleporter
-      label="Back to the village"
+    id="portal-mountain"
+      label="Back to the village 2"
+      scale="0.009 0.009 0.009"
       material="src: #room-physic-out-texture"
-      position="0 2.1 4.12"
-      rotation="0 180 0"
+      position="0.002 0.013 -0.015"
+      rotation="0 30 0"
       :rot="90"
       :y="-1500"
     />
