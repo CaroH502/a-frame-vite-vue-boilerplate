@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 import TheCameraRig from './TheCameraRig.vue';
 import PortalTeleporter from './PortalTeleporter.vue';
 import TheMainRoom from './TheMainRoom.vue';
-import TheLifeCubeRoom from './TheLifeCubeRoom.vue';
+import Herboriste from './Herboriste.vue';
 import ThePhysicRoom from './ThePhysicRoom.vue';
 //ne pas oublier d'import  le duplicate-me.js
 // import './aframe/duplicate-me.js'
@@ -85,7 +85,7 @@ const allAssetsLoaded = ref(false);
   <template v-if="allAssetsLoaded">
     
     <TheMainRoom :scale="scale" />
-    <TheLifeCubeRoom /> 
+    <Herboriste /> 
     <ThePhysicRoom />
   </template>
   <TheCameraRig />
