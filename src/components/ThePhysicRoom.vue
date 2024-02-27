@@ -10,7 +10,7 @@ import '../aframe/clickable.js';
   <a-entity
   id="montagnes"
   gltf-model="#mountains"
-  position="0 200.3 0"
+  position="0 200.1 0"
   scale="300 300 300"
   >
   
@@ -47,7 +47,7 @@ import '../aframe/clickable.js';
 <a-entity
 id="nav-mesh-mountains"
   geometry="primitive: plane; height: 80; width: 80"
-  position="37.38 200.05 17.127"
+  position="37.38 201 17.127"
   rotation="-90 -50 0"
   data-role="nav-mesh"
   material="color: yellow"
