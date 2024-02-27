@@ -1,7 +1,7 @@
 <script setup>
   import { ref } from 'vue';
-  import { randomHsl } from '../utils/color.js';
-  import BoxColorChanging from './BoxColorChanging.vue';
+  //import { randomHsl } from '../utils/color.js';
+  //import BoxColorChanging from './BoxColorChanging.vue';
   import PortalTeleporter from './PortalTeleporter.vue';
 import ExitDoor from "./ExitDoor.vue";
 
@@ -11,8 +11,8 @@ import ExitDoor from "./ExitDoor.vue";
     scale: Number,
   });
 
-  const colorBoxLeft = ref(randomHsl());
-  const colorBoxRight = ref(randomHsl());
+  //const colorBoxLeft = ref(randomHsl());
+  //const colorBoxRight = ref(randomHsl());
 </script>
 
 <template>
@@ -36,18 +36,17 @@ import ExitDoor from "./ExitDoor.vue";
     position="-72.15 1.5 25"
     rotation="0 -180 0"
     :rot="180"
-    :y="200"
+    :y="200.5"
     /> 
 
     <PortalTeleporter
     id="portal-store"
       label="In the herborsite"
-      material="src: #room-physic-texture"
-      life-like-automaton="resolution: 256;"
-      position="-57.8 1.5 -9.78"
+      position="-57.8 1.7 -9.78"
       rotation="0 -30 3"
       :rot="90"
-      :y="100"
+      :y="100.5"
+      :x="-1.3"
     />
     
     <a-entity
@@ -57,6 +56,16 @@ import ExitDoor from "./ExitDoor.vue";
     scale="0.015 0.015 0.015">
   </a-entity>
 </a-entity>
+
+<a-entity
+id="nav-mesh-village"
+  geometry="primitive: plane; height: 80; width: 80"
+  position="0 0.01 0"
+  rotation="-90 -50 0"
+  data-role="nav-mesh"
+  material="color: red"
+  visible="true"
+  ></a-entity>
 
   <!-- <a-entity
     gltf-model="#room"
