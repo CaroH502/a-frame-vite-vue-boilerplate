@@ -1,6 +1,6 @@
 
 import {decalage} from'../utils/decalage.js'
-import { randomHsl } from '../utils/color.js';
+//import { randomHsl } from '../utils/color.js';
 
 AFRAME.registerComponent('multiplier', {
     multiple: false,

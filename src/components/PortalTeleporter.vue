@@ -15,8 +15,6 @@
 <template>
   <a-entity
     geometry="primitive: circle; radius: 1"
-    opacity="0.5"
-    color="red"
     clickable
     :teleport-camera-rig="`
       x: ${x};
