@@ -8,8 +8,10 @@
 
 <template>
   <a-entity
-    gltf-model="#physic-room"
-    position="0 199.5 0"
+  id="montagnes"
+    gltf-model="#mountains"
+    position="0 197.5 0"
+    scale="300 300 300"
   >
 
     <!--<a-sphere v-for="index in 3" :key="index"
@@ -32,18 +34,28 @@
     />
   </a-entity>
 
-  <!-- Physic room navigation mesh -->
   <a-entity
+  id="nav-mesh-mountains"
+    geometry="primitive: plane; height: 90; width: 90"
+    position="33 199.5 4"
+    rotation="-90 0 0"
+    data-role="nav-mesh"
+    material="color: blue"
+    visible="false"
+  ></a-entity>
+
+  <!-- Physic room navigation mesh -->
+  <!--< a-entity
     geometry="primitive: plane; height: 7; width: 7"
     position="0 200.01 0"
     rotation="-90 0 0"
     data-role="nav-mesh"
     material="color: green"
     visible="false"
-  ></a-entity>
+  ></a-entity> -->
 
   <!-- Physic room floor & walls -->
-  <a-entity position="0 199.6 0" visible="false">
+  <!--<a-entity position="0 199.6 0" visible="false">
     <a-entity
       geometry="primitive: plane; height: 9.1; width: 9.1"
       rotation="-90 0 0"
@@ -77,5 +89,5 @@
       material="color: purple"
       physx-body="type: static"
     ></a-entity>
-  </a-entity>
+  </a-entity>-->
 </template>
