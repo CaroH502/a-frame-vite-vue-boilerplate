@@ -126,8 +126,8 @@ defineProps({
   rotation="0 -180 0"
   :rot="180"
   :y="200.5"
-  :x="1"
-  :z="-2.5"
+  :x="-15"
+  :z="-10.67"
   /> 
   
   <PortalTeleporter
@@ -229,7 +229,7 @@ defineProps({
   rotation="-90 0 0"
   data-role="nav-mesh"
   material="color: blue"
-  visible="true"
+  visible="false"
   ></a-entity>
   
   <!-- <a-entity

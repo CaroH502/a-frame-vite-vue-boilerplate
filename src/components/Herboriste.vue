@@ -107,7 +107,7 @@ function dropTheThing(evt) {
   position="0 100.01 0"
   rotation="-90 0 0"
   material="color: green"
-  visible="true"
+  visible="false"
   ></a-entity>
   
 </template>
