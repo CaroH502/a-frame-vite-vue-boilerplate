@@ -30,7 +30,7 @@ defineProps({
   ></a-entity>
   
   <PortalTeleporter
-  label="Get the dragon's
+  label="Get the dragon's egg
   Click to enter"
   scale="1.2 1.3 1.2"
   life-like-automaton="resolution: 256;"
@@ -39,6 +39,8 @@ defineProps({
   rotation="0 -180 0"
   :rot="180"
   :y="200.5"
+  :x="1"
+  :z="-2.5"
   /> 
   
   <PortalTeleporter
@@ -61,15 +63,15 @@ defineProps({
 </a-entity>
 </a-entity>
 
-<a-entity
+<!-- <a-entity
 id="nav-mesh-village"
 geometry="primitive: plane; height: 80; width: 80"
-position="0 0.01 0"
+position="0 0.2 0"
 rotation="-90 -50 0"
 data-role="nav-mesh"
 material="color: red"
 visible="true"
-></a-entity>
+></a-entity> -->
 
 <!-- <a-entity
   gltf-model="#room"

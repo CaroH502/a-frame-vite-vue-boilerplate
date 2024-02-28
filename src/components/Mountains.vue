@@ -31,7 +31,10 @@ import '../aframe/clickable.js';
     material="src: #room-physic-out-texture"
     position="0.002 0.013 -0.015"
     rotation="0 30 0"
-    :rot="90"
+    :rot="0"
+    :x="4"
+    :z="33.5"
+  
     />
     
     <a-entity
@@ -44,7 +47,7 @@ import '../aframe/clickable.js';
 </a-entity>
 
 <!-- Physic room navigation mesh -->
-<a-entity
+<!-- <a-entity
 id="nav-mesh-mountains"
   geometry="primitive: plane; height: 80; width: 80"
   position="37.38 201 17.127"
@@ -53,7 +56,7 @@ id="nav-mesh-mountains"
   material="color: yellow"
   visible="true"
   ></a-entity>
-  
+   -->
   <!-- Physic room floor & walls -->
   <!--<a-entity position="0 199.6 0" visible="false">
     <a-entity
