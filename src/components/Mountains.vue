@@ -23,13 +23,19 @@ import '../aframe/clickable.js';
     color="purple"
     clickable
     ></a-sphere>-->
-    
+    <a-entity
+  gltf-model="#portal"
+  position="-0.003 0.002 -0.011"
+  rotation="0 30 0"
+  scale="0.002 0.002 0.002"> 
+  ></a-entity>
+
     <PortalTeleporter
     id="portal-mountain"
     label="Back to the village 2"
-    scale="0.009 0.009 0.009"
-    material="src: #room-physic-out-texture"
-    position="0.002 0.013 -0.015"
+    scale="0.004 0.004 0.004"
+    material="opacity: 0.0; transparent: true"
+    position="0.003 0.008 -0.013"
     rotation="0 30 0"
     :rot="0"
     :x="4"
