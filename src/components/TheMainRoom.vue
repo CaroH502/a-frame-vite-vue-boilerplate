@@ -84,6 +84,26 @@ defineProps({
   clickable
   @click="evt => grabTheThing(evt)"
   ></a-box>
+
+  <a-entity
+      id="drop-zone-left"
+      geometry="primitive: sphere; phiLength: 180; radius: 0.5; thetaLength: 90;"
+      material="color: blue; side: double"
+      position="-75.211 1.177 20.11"
+      rotation="90 0 0"
+      clickable
+      @click="evt => dropTheThing(evt)"
+    ></a-entity>
+
+    <a-entity
+      id="drop-zone-left-green"
+      geometry="primitive: sphere; phiLength: 180; radius: 0.5; thetaLength: 90;"
+      material="color: green; side: double"
+      position="-73.057 1.203 16.904"
+      rotation="90 0 0"
+      clickable
+      @click="evt => dropTheThing(evt)"
+    ></a-entity>
   
   <a-entity
   gltf-model="#portal"
