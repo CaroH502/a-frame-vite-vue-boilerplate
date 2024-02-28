@@ -78,7 +78,10 @@ function dropTheThing(evt) {
   position="-1.966 1.184 1.128"
   rotation="0 90 0"
   scale="20 20 20"
-  />
+  ></a-entity>
+
+    <a-text value="potion de soin" width="1" color="#FFF" position="-1.819 1.649 0.977" rotation="0 -180 0" scale="1 1 1"></a-text>
+
   
   <PortalTeleporter
   label="Back to main room"

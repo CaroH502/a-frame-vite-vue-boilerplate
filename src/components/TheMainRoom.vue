@@ -76,6 +76,7 @@ defineProps({
   rotation="0 0 0"
   scale="0.99 0.99 0.99">
   
+
   <a-box
   id="box-1-grabbable"
   color="red"
@@ -83,7 +84,7 @@ defineProps({
   position="-73.331 1.082 -7.918"
   clickable
   @click="evt => grabTheThing(evt)"
-  ></a-box>
+  ></a-box> 
 
   <a-entity
       id="drop-zone-left"
