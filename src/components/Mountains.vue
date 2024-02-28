@@ -10,8 +10,8 @@ import '../aframe/clickable.js';
   <a-entity
   id="montagnes"
   gltf-model="#mountains"
-  position="0 200.1 0"
-  scale="300 300 300"
+  position="0 199.5 0"
+  scale="1 1 1"
   >
   
   <!--<a-sphere v-for="index in 3" :key="index"
@@ -53,16 +53,17 @@ import '../aframe/clickable.js';
 </a-entity>
 
 <!-- Physic room navigation mesh -->
-<!-- <a-entity
+
+<a-entity
 id="nav-mesh-mountains"
   geometry="primitive: plane; height: 80; width: 80"
-  position="37.38 201 17.127"
+  position="37.38 200.7 17.127"
   rotation="-90 -50 0"
   data-role="nav-mesh"
   material="color: yellow"
   visible="true"
   ></a-entity>
-   -->
+  
   <!-- Physic room floor & walls -->
   <!--<a-entity position="0 199.6 0" visible="false">
     <a-entity

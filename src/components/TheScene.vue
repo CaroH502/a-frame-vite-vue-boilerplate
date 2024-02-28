@@ -34,6 +34,7 @@ const allAssetsLoaded = ref(false);
 
 <template>
   <a-scene stats
+  shadow="type: pcfSoft"
   background="color: #D1E0E8;"
   afog="type: linear; color: #9EA8AD; near:1; far:50 density: 0.8;"
   :webxr="`
@@ -79,6 +80,8 @@ const allAssetsLoaded = ref(false);
     <a-assest-item id="potion" src="assets/potion.glb"></a-assest-item>
     <a-assest-item id="mountains" src="assets/mountains.glb"></a-assest-item>
     <a-assest-item id="oeuf" src="assets/oeuf.glb"></a-assest-item>
+    <a-assest-item id="porte" src="assets/porte.glb"></a-assest-item>
+
   </a-assets>
   
   <template v-if="allAssetsLoaded">

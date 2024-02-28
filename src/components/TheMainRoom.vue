@@ -67,14 +67,17 @@ defineProps({
 //const colorBoxRight = ref(randomHsl());
 </script>
 
-<template>
-  <a-entity light="type: ambient; color: #FFF7CF"></a-entity>
+<template>  
+ <a-light type="ambient" color="#FAE6B8"></a-light>
+ <a-light type="directional" color="#FFF" intensity="1" position="-1 1 1" target="#target" castShadow="true"></a-light>
   
-  <a-entity
+ <a-entity
   gltf-model="#village"
   position="75 -0.5 11"
   rotation="0 0 0"
-  scale="0.99 0.99 0.99">
+  scale="0.99 0.99 0.99"
+  shadow="cast: true; receive: true"
+  >
   
 
   <a-box
@@ -214,24 +217,28 @@ defineProps({
     />
   </a-entity>
   
-  <ExitDoor />
+  <ExitDoor /> -->
   
-  
+  <a-plane position="0 -0.6 0" rotation="-90 0 0" width="100" height="100" color="#7BC8A4"
+               shadow="receive: true"></a-plane>
+
   <a-entity
-  geometry="primitive: plane; height: 13.5; width: 6"
+  id= "nav-mesh-village"
+  geometry="primitive: plane; height: 100; width: 100"
   position="0 0.01 -4.75"
   rotation="-90 0 0"
   data-role="nav-mesh"
   material="color: blue"
-  visible="false"
+  visible="true"
   ></a-entity>
-  <a-entity
+  
+  <!-- <a-entity
   geometry="primitive: plane; height: .5; width: 5"
   position="0 0.01 -11.75"
   rotation="-90 0 0"
   data-role="nav-mesh"
   material="color: red"
-  visible="false"
-  ></a-entity> -->
+  visible="true"
+  ></a-entity>  -->
   
 </template>

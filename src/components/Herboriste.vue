@@ -69,7 +69,7 @@ function dropTheThing(evt) {
   position="-3.3 0.20 -0.3"
   rotation="0 90 0"
   />
-  
+    
   <a-entity
   id="potion"
   gltf-model="#potion"
@@ -82,10 +82,16 @@ function dropTheThing(evt) {
 
     <a-text value="potion de soin" width="1" color="#FFF" position="-1.819 1.649 0.977" rotation="0 -180 0" scale="1 1 1"></a-text>
 
-  
+    <a-entity
+    id="porte"
+  gltf-model="#porte"
+  position="-1.677 0.26 0.133"
+  rotation="0 -60 0"
+  />
+
   <PortalTeleporter
   label="Back to main room"
-  material="src: #room-gol-out-texture"
+  material="opacity: 0.0; transparent: true"
   position="0 1 0"
   rotation="0 -90 0"
   :rot="180"
@@ -95,13 +101,13 @@ function dropTheThing(evt) {
 </a-entity>
 
 <!-- Life Cube room navigation mesh -->
-<!-- <a-entity
+<a-entity
   data-role="nav-mesh"
   geometry="primitive: plane; height: 3; width: 3"
   position="0 100.01 0"
   rotation="-90 0 0"
   material="color: green"
-  visible="false"
-  ></a-entity> -->
+  visible="true"
+  ></a-entity>
   
 </template>
