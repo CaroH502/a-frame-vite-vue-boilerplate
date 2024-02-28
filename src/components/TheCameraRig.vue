@@ -13,7 +13,6 @@
     movement-controls="camera: #head;"
     disable-in-vr="component: movement-controls;"
   >
-
       <a-entity
         id="head"
         look-controls="pointerLockEnabled: true"
@@ -31,6 +30,14 @@
           disable-in-vr="component: raycaster; disableInAR: false;"
           hide-in-vr="hideInAR: false"
         ></a-entity>
+        <a-entity
+            id="dummy-hand-right"
+            position="0.3 -0.4 -0.5"
+          ></a-entity>
+          <a-entity
+            id="dummy-hand-left"
+            position="-0.3 -0.4 -0.5"
+          ></a-entity>
       </a-entity>
 
       <a-entity

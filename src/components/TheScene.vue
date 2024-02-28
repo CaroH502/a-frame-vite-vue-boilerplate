@@ -34,9 +34,8 @@ const allAssetsLoaded = ref(false);
 
 <template>
   <a-scene stats
-  Abackground="color: #80C2FF;"
-  background="color: #DDDDDD;"
-  Afog="type: linear; color: #80C2FF; near:1; far:10"
+  background="color: #D1E0E8;"
+  fog="type: linear; color: #9EA8AD; near:1; far:50 density: 0.8;"
   :webxr="`
   requiredFeatures: local-floor;
   referenceSpaceType: local-floor;
