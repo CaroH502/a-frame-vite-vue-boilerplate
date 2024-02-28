@@ -36,7 +36,7 @@ const allAssetsLoaded = ref(false);
   <a-scene stats
   shadow="type: pcfSoft"
   background="color: #D1E0E8;"
-  afog="type: linear; color: #9EA8AD; near:1; far:50 density: 0.8;"
+  afog="type: linear; color: #9EA8AD; near:0.01; far:60 density: 0.8;"
   :webxr="`
   requiredFeatures: local-floor;
   referenceSpaceType: local-floor;
@@ -82,6 +82,8 @@ const allAssetsLoaded = ref(false);
     <a-assest-item id="oeuf" src="assets/oeuf.glb"></a-assest-item>
     <a-assest-item id="porte" src="assets/porte.glb"></a-assest-item>
     <a-assest-item id="wall" src="assets/wall.glb"></a-assest-item>
+    <a-assest-item id="cloud" src="assets/cloud.glb"></a-assest-item>
+
 
   </a-assets>
   

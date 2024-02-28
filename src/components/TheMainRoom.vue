@@ -86,7 +86,52 @@ defineProps({
   rotation="0 -5 0"
   scale="1 1 1"
   />
+
+  <a-entity
+    id="big-cloud"
+  gltf-model="#cloud"
+  position="91.440 165.84 114.9"
+  rotation="0 90 0"
+  scale="3 1 3"
+  />
+
+  <a-entity
+    id="small-cloud"
+  gltf-model="#cloud"
+  position="-38.055 71.151 38.018"
+  rotation="0 70 0"
+  scale="1 1 1"
+  />
   
+  <a-entity
+    id="cloud-castle"
+  gltf-model="#cloud"
+  position="-30.78353 24.46236 52.10729" 
+  rotation="0 29.999999999999996 0" 
+  scale="0.5 0.4 0.8"
+  />
+
+  <a-entity
+    id="cloud-4"
+  gltf-model="#cloud"
+  position="-76.82733 17.36987 28.40477" 
+  rotation="0 66 0" 
+  scale="0.445 0.34 0.8"
+  />
+
+  <a-entity
+    id="cloud-5"
+  gltf-model="#cloud"
+  position="-116.47261 11.05674 97.84924" 
+  rotation="0 -55 0" 
+  scale="0.725 0.55 0.49"
+  />
+
+
+
+
+
+
 
   <a-box
   id="box-1-grabbable"
