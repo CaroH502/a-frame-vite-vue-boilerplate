@@ -138,7 +138,7 @@ defineProps({
   position="-57.8 1.7 -9.78"
   rotation="0 -30 3"
   :rot="90"
-  :y="100.5"
+  :y="100.31"
   :x="-1.3"
   />
   
@@ -219,9 +219,6 @@ defineProps({
   
   <ExitDoor /> -->
   
-  <a-plane position="0 -0.6 0" rotation="-90 0 0" width="100" height="100" color="#7BC8A4"
-               shadow="receive: true"></a-plane>
-
   <a-entity
   id= "nav-mesh-village"
   geometry="primitive: plane; height: 100; width: 100"

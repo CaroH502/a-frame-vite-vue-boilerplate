@@ -13,7 +13,6 @@ import '../aframe/clickable.js';
   position="0 198.5 0"
   scale="1 1 1"
   >
-  
   <!--<a-sphere v-for="index in 3" :key="index"
     physx-body="type: dynamic"
     physx-grabbable
@@ -58,7 +57,7 @@ import '../aframe/clickable.js';
 <a-entity
 id="nav-mesh-mountains"
   geometry="primitive: plane; height: 65; width: 45"
-  position="4.361 200.2 9.718"
+  position="4.361 200.45 9.718"
   rotation="-90 0 0"
   data-role="nav-mesh"
   material="color: yellow"
