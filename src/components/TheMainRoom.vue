@@ -78,6 +78,14 @@ defineProps({
   scale="0.99 0.99 0.99"
   shadow="cast: true; receive: true"
   >
+
+  <a-entity
+    id="wall"
+  gltf-model="#wall"
+  position="-47.462 0.133 -0.156"
+  rotation="0 -5 0"
+  scale="1 1 1"
+  />
   
 
   <a-box

@@ -81,6 +81,7 @@ const allAssetsLoaded = ref(false);
     <a-assest-item id="mountains" src="assets/mountains.glb"></a-assest-item>
     <a-assest-item id="oeuf" src="assets/oeuf.glb"></a-assest-item>
     <a-assest-item id="porte" src="assets/porte.glb"></a-assest-item>
+    <a-assest-item id="wall" src="assets/wall.glb"></a-assest-item>
 
   </a-assets>
   
