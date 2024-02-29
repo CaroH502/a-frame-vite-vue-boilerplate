@@ -74,6 +74,16 @@ function dropTheThing(evt) {
   position="-3.3 0.20 -0.3"
   rotation="0 90 0"
   />
+
+  <a-text 
+  id="text-vendeur"
+  value="Bonjour, que puis-je faire pour vous ?" 
+    width="1" 
+    color="#FFF" 
+    position="-3.188 2.043 0.054" 
+    rotation="0 90 0" 
+    scale="1 1 1">
+  </a-text>
     
   <a-entity
   id="potion"
@@ -85,7 +95,13 @@ function dropTheThing(evt) {
   scale="20 20 20"
   ></a-entity>
 
-    <a-text value="potion de soin" width="1" color="#FFF" position="-1.819 1.649 0.977" rotation="0 -180 0" scale="1 1 1"></a-text>
+    <a-text value="potion de soin" 
+    width="1" 
+    color="#FFF" 
+    position="-1.819 1.649 0.977" 
+    rotation="0 -180 0" 
+    scale="1 1 1">
+  </a-text>
 
     <a-entity
     id="porte"

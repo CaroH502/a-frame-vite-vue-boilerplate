@@ -63,45 +63,46 @@ function dropTheThing(evt) {
   position="0 198.5 0"
   scale="1 1 1"
   >
-  <!--<a-sphere v-for="index in 3" :key="index"
-    physx-body="type: dynamic"
-    physx-grabbable
-    physx-force-pushable
-    :position="`${index -2} 1 1`"
-    radius="0.25"
-    color="purple"
-    clickable
-    ></a-sphere>-->
-    <a-entity
-    id="portal-noir"
-    gltf-model="#portal"
-    position="-16.474 1.528 -11.364"
-    rotation="0 0 0"
-    scale="0.5 0.5 0.5"> 
-    ></a-entity>
-    
-    <PortalTeleporter
-    id="portal-mountain"
-    label="Back to the village 2"
-    scale="1 1 1"
-    material="opacity: 0.0; transparent: true"
-    position="-14.876 3.135 -11.004"
-    rotation="0 0 0"
-    :rot="0"
-    :x="4"
-    :z="33.5"
-    
-    />
-    
-    <a-entity
-    id="oeuf"
-    gltf-model="#oeuf"
-    position="18.688 1.926 2.496"
-    rotation="0 30 0"
-    clickable
-    @click="evt => grabTheThing(evt)"
-    scale="0.2 0.2 0.2">
-  </a-entity>
+  <a-entity
+  id="portal-noir"
+  gltf-model="#portal"
+  position="-16.474 1.528 -11.364"
+  rotation="0 0 0"
+  scale="0.5 0.5 0.5"> 
+  ></a-entity>
+  
+  <a-text 
+  id="text-recup-oeuf"
+  value="Trouver et ramener l'oeuf au dragon" 
+  width="2" 
+  color="#FFF" 
+  position="-14.113 3.75 -9" 
+  rotation="0 -180 0" 
+  scale="1 1 1">
+</a-text>
+
+<PortalTeleporter
+id="portal-mountain"
+label="Back to the village 2"
+scale="1 1 1"
+material="opacity: 0.0; transparent: true"
+position="-14.876 3.135 -11.004"
+rotation="0 0 0"
+:rot="0"
+:x="4"
+:z="33.5"
+
+/>
+
+<a-entity
+id="oeuf"
+gltf-model="#oeuf"
+position="18.688 1.926 2.496"
+rotation="0 30 0"
+clickable
+@click="evt => grabTheThing(evt)"
+scale="0.2 0.2 0.2">
+</a-entity>
 </a-entity>
 
 <!-- Physic room navigation mesh -->
