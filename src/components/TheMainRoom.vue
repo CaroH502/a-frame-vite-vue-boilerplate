@@ -11,6 +11,7 @@ import '../aframe/bind-rotation.js';
 //import '../aframe/life-like-automaton.js';
 
 const isCorrectItemDropped = ref(false);
+const isEggDropped = ref(false);
 
 function grabTheThing(evt) {
   // if something already grabbed, switch it
@@ -40,8 +41,8 @@ function grabTheThing(evt) {
   }
   el.dataset.grabbed = true;
   delete el.dataset.dropped;
-  checkAndUpdateTextVisibility();
-}
+  checkItemInDropZone('drop-zone-left', 'potion', isCorrectItemDropped);
+  checkItemInDropZone('drop-zone-left-green', 'oeuf', isEggDropped);}
 
 function dropTheThing(evt) {
   const grabbedEl = document.querySelector('[data-grabbed]');
@@ -64,13 +65,13 @@ function dropTheThing(evt) {
   delete grabbedEl.dataset.grabbed;
 
   // Mise à jour de la visibilité du texte basée uniquement sur la position de la potion
-  checkAndUpdateTextVisibility();
-}
+  checkItemInDropZone('drop-zone-left', 'potion', isCorrectItemDropped);
+  checkItemInDropZone('drop-zone-left-green', 'oeuf', isEggDropped);}
 
-function checkAndUpdateTextVisibility() {
-  // Vérifier si la potion est déposée dans la zone 'drop-zone-left'
-  const potionInDropZone = document.querySelector(`[data-dropped="drop-zone-left"][id="potion"]`);
-  isCorrectItemDropped.value = !!potionInDropZone;
+function checkItemInDropZone(dropZoneId, itemId, visibilityRef) {
+  // Vérifier si l'objet spécifié est déposé dans la zone de dépôt spécifiée
+  const itemInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"][id="${itemId}"]`);
+  visibilityRef.value = !!itemInDropZone; // Met à jour la variable réactive basée sur la présence de l'objet
 }
 
 
@@ -127,6 +128,7 @@ opacity="0.7">
 </a-text>
 
 <a-text 
+v-if="isEggDropped"
 id="texte-fin"
 value="Merci d'avoir récupéré mon oeuf.
 En signe de gratitude, je serai le gardien éternel de votre village"
