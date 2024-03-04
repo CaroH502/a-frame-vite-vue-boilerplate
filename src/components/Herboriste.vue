@@ -8,6 +8,8 @@ import PortalTeleporter from './PortalTeleporter.vue';
 function grabTheThing(evt) {
   // if something already grabbed, switch it
   const el = evt.target;
+  const dropZoneId = evt.target.id;
+  console.log('dropZoneId - grab', dropZoneId);
   const grabbedEl = document.querySelector('[data-grabbed]');
   if (grabbedEl) {
     grabbedEl.removeAttribute('bind-position');
