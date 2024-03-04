@@ -18,6 +18,7 @@ function grabTheThing(evt) {
   const dropZoneId = evt.target.id;
   console.log('dropZoneId - grab', dropZoneId);
   const grabbedEl = document.querySelector('[data-grabbed]');
+  
   if (grabbedEl) {
     grabbedEl.removeAttribute('bind-position');
     grabbedEl.removeAttribute('bind-rotation');
@@ -27,7 +28,7 @@ function grabTheThing(evt) {
     delete grabbedEl.dataset.dropped;
     if (el.dataset.dropped) {
       grabbedEl.dataset.dropped = el.dataset.dropped;
-    }
+    }   
   }
   
   if (el.sceneEl.is('vr-mode')) {
@@ -39,37 +40,43 @@ function grabTheThing(evt) {
   }
   el.dataset.grabbed = true;
   delete el.dataset.dropped;
+  checkAndUpdateTextVisibility();
 }
 
 function dropTheThing(evt) {
   const grabbedEl = document.querySelector('[data-grabbed]');
-  // if nothing grabbed, return
   if (!grabbedEl) return;
-  
-  //drop it
+
+  const dropZoneId = evt.target.id; // L'ID de la zone où l'objet est déposé
+
+  // Vérifier si un objet est déjà présent dans la zone de dépose et le nettoyer
+  const elInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"]`);
+  if (elInDropZone) {
+    elInDropZone.removeAttribute('data-dropped');
+  }
+
+  // Mettre à jour la position et la rotation de l'objet saisi et le marquer comme déposé
   grabbedEl.removeAttribute('bind-position');
   grabbedEl.removeAttribute('bind-rotation');
   copyPosition(evt.target, grabbedEl);
   copyRotation(evt.target, grabbedEl);
-  delete grabbedEl.dataset.grabbed;
-  
-  const dropZoneId = evt.target.id;
-  console.log('dropZoneId', dropZoneId);
-
-  if (grabbedEl.id === 'potion' && dropZoneId === 'drop-zone-left') {
-    isCorrectItemDropped.value = true;
-  } else {
-    isCorrectItemDropped.value = false;
-  }
-
-  // if something was in the drop zone, grab it
-  const elInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"]`);
-  if (elInDropZone) {
-    grabTheThing({ target: elInDropZone });
-  };
-  
   grabbedEl.dataset.dropped = dropZoneId;
+  delete grabbedEl.dataset.grabbed;
+
+  // Mise à jour de la visibilité du texte basée uniquement sur la position de la potion
+  checkAndUpdateTextVisibility();
 }
+
+function checkAndUpdateTextVisibility() {
+  // Vérifier si la potion est déposée dans la zone 'drop-zone-left'
+  const potionInDropZone = document.querySelector(`[data-dropped="drop-zone-left"][id="potion"]`);
+  isCorrectItemDropped.value = !!potionInDropZone;
+}
+
+
+
+
+
 
 defineProps({
   scale: Number,
@@ -104,32 +111,32 @@ defineProps({
 </a-text>
 
 <a-text 
-   v-if="isCorrectItemDropped"
-  id="texte-potion"
-  value="Merci de m'avoir soigné ! Je te fais confiance à présent, je protège ce portail, 
-  car mon œuf a été catapulté dans une autre dimension par l'intermédiaire du portail derrière moi.
-  Ceci est l'œuvre d'un magicien complice de chevaliers avides qui convoitaient mon trésor., 
-  Ils ont utilisé mon oeuf comme diversion pour piller mes richesses."
-  width="2" 
-  color="#FFF" 
-  position="-75.128 2.5 20.561" 
-  rotation="0 -180 0" 
-  scale="1 1 1"
-  background-color="#000"
-  opacity="0.7">
+v-if="isCorrectItemDropped"
+id="texte-potion"
+value="Merci de m'avoir soigné ! Je te fais confiance à présent, je protège ce portail, 
+car mon œuf a été catapulté dans une autre dimension par l'intermédiaire du portail derrière moi.
+Ceci est l'œuvre d'un magicien complice de chevaliers avides qui convoitaient mon trésor., 
+Ils ont utilisé mon oeuf comme diversion pour piller mes richesses."
+width="2" 
+color="#FFF" 
+position="-75.128 2.5 20.561" 
+rotation="0 -180 0" 
+scale="1 1 1"
+background-color="#000"
+opacity="0.7">
 </a-text>
 
 <a-text 
-  id="texte-fin"
-  value="Merci d'avoir récupéré mon oeuf.
-  En signe de gratitude, je serai le gardien éternel de votre village"
-  width="2" 
-  color="#FFF" 
-  position="-72.322 2.5 17.033" 
-  rotation="0 -180 0" 
-  scale="1 1 1"
-  background-color="#000"
-  opacity="0.7">
+id="texte-fin"
+value="Merci d'avoir récupéré mon oeuf.
+En signe de gratitude, je serai le gardien éternel de votre village"
+width="2" 
+color="#FFF" 
+position="-72.322 2.5 17.033" 
+rotation="0 -180 0" 
+scale="1 1 1"
+background-color="#000"
+opacity="0.7">
 </a-text>
 
 
