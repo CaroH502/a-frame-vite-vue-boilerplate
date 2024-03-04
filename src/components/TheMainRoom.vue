@@ -10,7 +10,7 @@ import '../aframe/bind-rotation.js';
 //import ExitDoor from "./ExitDoor.vue";
 //import '../aframe/life-like-automaton.js';
 
-let potionTextVisible = ref(false);
+const isCorrectItemDropped = ref(false);
 
 function grabTheThing(evt) {
   // if something already grabbed, switch it
@@ -56,8 +56,10 @@ function dropTheThing(evt) {
   const dropZoneId = evt.target.id;
   console.log('dropZoneId', dropZoneId);
 
-  if (dropZoneId === 'drop-zone-left') {
-    potionTextVisible.value = true; // Rendre le texte visible seulement si l'objet est déposé dans la zone bleue
+  if (grabbedEl.id === 'potion' && dropZoneId === 'drop-zone-left') {
+    isCorrectItemDropped.value = true;
+  } else {
+    isCorrectItemDropped.value = false;
   }
 
   // if something was in the drop zone, grab it
@@ -102,7 +104,7 @@ defineProps({
 </a-text>
 
 <a-text 
-v-if="potionTextVisible"
+   v-if="isCorrectItemDropped"
   id="texte-potion"
   value="Merci de m'avoir soigné ! Je te fais confiance à présent, je protège ce portail, 
   car mon œuf a été catapulté dans une autre dimension par l'intermédiaire du portail derrière moi.
