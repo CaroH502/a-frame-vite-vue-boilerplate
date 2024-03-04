@@ -43,88 +43,88 @@ function grabTheThing(evt) {
   delete el.dataset.dropped;
   checkItemInDropZone('drop-zone-left', 'potion', isCorrectItemDropped);
   checkItemInDropZone('drop-zone-left-green', 'oeuf', isEggDropped);}
-
-function dropTheThing(evt) {
-  const grabbedEl = document.querySelector('[data-grabbed]');
-  if (!grabbedEl) return;
-
-  const dropZoneId = evt.target.id; // L'ID de la zone où l'objet est déposé
-
-  // Vérifier si un objet est déjà présent dans la zone de dépose et le nettoyer
-  const elInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"]`);
-  if (elInDropZone) {
-    elInDropZone.removeAttribute('data-dropped');
-  }
-
-  // Mettre à jour la position et la rotation de l'objet saisi et le marquer comme déposé
-  grabbedEl.removeAttribute('bind-position');
-  grabbedEl.removeAttribute('bind-rotation');
-  copyPosition(evt.target, grabbedEl);
-  copyRotation(evt.target, grabbedEl);
-  grabbedEl.dataset.dropped = dropZoneId;
-  delete grabbedEl.dataset.grabbed;
-
-  // Mise à jour de la visibilité du texte basée uniquement sur la position de la potion
-  checkItemInDropZone('drop-zone-left', 'potion', isCorrectItemDropped);
-  checkItemInDropZone('drop-zone-left-green', 'oeuf', isEggDropped);}
-
-function checkItemInDropZone(dropZoneId, itemId, visibilityRef) {
-  // Vérifier si l'objet spécifié est déposé dans la zone de dépôt spécifiée
-  const itemInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"][id="${itemId}"]`);
-  visibilityRef.value = !!itemInDropZone; // Met à jour la variable réactive basée sur la présence de l'objet
-}
-
-
-
-
-
-
-defineProps({
-  scale: Number,
-});
-
-//const colorBoxLeft = ref(randomHsl());
-//const colorBoxRight = ref(randomHsl());
-</script>
-
-<template>  
-  <a-light type="ambient" color="#FAE6B8"></a-light>
-  <a-light type="directional" color="#FFF" intensity="1" position="-1 1 1" target="#target" castShadow="true"></a-light>
   
-  <a-entity
-  gltf-model="#village"
-  position="75 -0.5 11"
-  rotation="0 0 0"
-  scale="0.99 0.99 0.99"
-  shadow="cast: true; receive: true"
-  >
+  function dropTheThing(evt) {
+    const grabbedEl = document.querySelector('[data-grabbed]');
+    if (!grabbedEl) return;
+    
+    const dropZoneId = evt.target.id; // L'ID de la zone où l'objet est déposé
+    
+    // Vérifier si un objet est déjà présent dans la zone de dépose et le nettoyer
+    const elInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"]`);
+    if (elInDropZone) {
+      elInDropZone.removeAttribute('data-dropped');
+    }
+    
+    // Mettre à jour la position et la rotation de l'objet saisi et le marquer comme déposé
+    grabbedEl.removeAttribute('bind-position');
+    grabbedEl.removeAttribute('bind-rotation');
+    copyPosition(evt.target, grabbedEl);
+    copyRotation(evt.target, grabbedEl);
+    grabbedEl.dataset.dropped = dropZoneId;
+    delete grabbedEl.dataset.grabbed;
+    
+    // Mise à jour de la visibilité du texte basée uniquement sur la position de la potion
+    checkItemInDropZone('drop-zone-left', 'potion', isCorrectItemDropped);
+    checkItemInDropZone('drop-zone-left-green', 'oeuf', isEggDropped);}
+    
+    function checkItemInDropZone(dropZoneId, itemId, visibilityRef) {
+      // Vérifier si l'objet spécifié est déposé dans la zone de dépôt spécifiée
+      const itemInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"][id="${itemId}"]`);
+      visibilityRef.value = !!itemInDropZone; // Met à jour la variable réactive basée sur la présence de l'objet
+    }
+    
+    
+    
+    
+    
+    
+    defineProps({
+      scale: Number,
+    });
+    
+    //const colorBoxLeft = ref(randomHsl());
+    //const colorBoxRight = ref(randomHsl());
+  </script>
+  
+  <template>  
+    <a-light type="ambient" color="#FAE6B8"></a-light>
+    <a-light type="directional" color="#FFF" intensity="1" position="-1 1 1" target="#target" castShadow="true"></a-light>
+    
+    <a-entity
+    gltf-model="#village"
+    position="75 -0.5 11"
+    rotation="0 0 0"
+    scale="0.99 0.99 0.99"
+    shadow="cast: true; receive: true"
+    >
+    <a-text 
+    id="texte-quête-1"
+    value="Constatant que le dragon est blessé à la patte, 
+    vous vous rendez chez l'herboriste du village."
+    width="2" 
+    color="#FFF" 
+    position="-75.255 2.5 -9.521" 
+    rotation="0 -180 0" 
+    scale="1 1 1"
+    background-color="#000"
+    opacity="0.7">
+  </a-text>
+  
   <a-text 
-  id="texte-quête-1"
-  value="Constatant que le dragon est blessé à la patte, 
-  vous vous rendez chez l'herboriste du village."
+  v-if="isCorrectItemDropped"
+  id="texte-potion"
+  value="Merci de m'avoir soigné ! Je te fais confiance à présent, je protège ce portail, 
+  car mon œuf a été catapulté dans une autre dimension par l'intermédiaire du portail derrière moi.
+  Ceci est l'œuvre d'un magicien complice de chevaliers avides qui convoitaient mon trésor., 
+  Ils ont utilisé mon oeuf comme diversion pour piller mes richesses."
   width="2" 
   color="#FFF" 
-  position="-75.255 2.5 -9.521" 
+  position="-75.128 2.5 20.561" 
   rotation="0 -180 0" 
   scale="1 1 1"
   background-color="#000"
   opacity="0.7">
-</a-text>
-
-<a-text 
-v-if="isCorrectItemDropped"
-id="texte-potion"
-value="Merci de m'avoir soigné ! Je te fais confiance à présent, je protège ce portail, 
-car mon œuf a été catapulté dans une autre dimension par l'intermédiaire du portail derrière moi.
-Ceci est l'œuvre d'un magicien complice de chevaliers avides qui convoitaient mon trésor., 
-Ils ont utilisé mon oeuf comme diversion pour piller mes richesses."
-width="2" 
-color="#FFF" 
-position="-75.128 2.5 20.561" 
-rotation="0 -180 0" 
-scale="1 1 1"
-background-color="#000"
-opacity="0.7">
 </a-text>
 
 <a-text 
@@ -227,6 +227,7 @@ scale="0.6 0.6 0.6">
 </a-entity>
 
 <PortalTeleporter
+v-if="isCorrectItemDropped"
 label="Get the dragon's egg
 Click to enter"
 scale="1.2 1.3 1.2"
@@ -260,92 +261,14 @@ scale="0.015 0.015 0.015">
 </a-entity>
 </a-entity>
 
-<!-- <a-entity
-  id="nav-mesh-village"
-  geometry="primitive: plane; height: 80; width: 80"
-  position="0 0.2 0"
-  rotation="-90 -50 0"
-  data-role="nav-mesh"
-  material="color: red"
-  visible="true"
-  ></a-entity> -->
-  
-  <!-- <a-entity
-    gltf-model="#room"
-    rotation="0 90 0"
-    position="0 0 -5"
-    scale="1 1.1 1"
-    >
-    
-    <a-entity
-    geometry="primitive: plane; height: 2; width: 2;"
-    position="2 2 3.9"
-    rotation="-180 0 0"
-    life-like-automaton="resolution: 64; maxGen: 30;  birthRule: 3,4,5,6,7; survivalRule: 5,6;"
-    ></a-entity>
-    
-    <a-entity
-    geometry="primitive: plane; height: 2; width: 2;"
-    position="2 2 -3.9"
-    life-like-automaton="maxGen: 10; birthRule: 6,7,8; survivalRule: 4,5,6,7,8;"
-    ></a-entity>
-    
-    <BoxColorChanging
-    id="box-left"
-    :scale="scale"
-    :color="colorBoxLeft"
-    position="7 0.5 -3"
-    @click="colorBoxRight = randomHsl()"
-    sound="src: #sound-1; on: click;"
-    />
-    
-    <BoxColorChanging
-    id="box-right"
-    :scale="scale"
-    :color="colorBoxRight"
-    position="7 0.5 3"
-    @click="colorBoxLeft = randomHsl()"
-    sound="src: #sound-1; on: click;"
-    />
-    
-    <PortalTeleporter
-    label="Enter the Life Cube Room"
-    life-like-automaton="resolution: 256;"
-    position="-7.99 1.5 0"
-    rotation="0 90 0"
-    :rot="180"
-    :y="100"
-    />
-    
-    <PortalTeleporter
-    label="Enter the Physic Room"
-    material="src: #room-physic-texture"
-    position="-6 1.5 -3.99"
-    rotation="0 0 0"
-    :rot="180"
-    :y="200"
-    />
-  </a-entity>
-  
-  <ExitDoor /> -->
-  
-  <a-entity
-  id= "nav-mesh-village"
-  geometry="primitive: plane; height: 100; width: 100"
-  position="0 0.01 -4.75"
-  rotation="-90 0 0"
-  data-role="nav-mesh"
-  material="color: blue"
-  visible="false"
-  ></a-entity>
-  
-  <!-- <a-entity
-    geometry="primitive: plane; height: .5; width: 5"
-    position="0 0.01 -11.75"
-    rotation="-90 0 0"
-    data-role="nav-mesh"
-    material="color: red"
-    visible="true"
-    ></a-entity>  -->
-    
-  </template>
+<a-entity
+id= "nav-mesh-village"
+geometry="primitive: plane; height: 100; width: 100"
+position="0 0.01 -4.75"
+rotation="-90 0 0"
+data-role="nav-mesh"
+material="color: blue"
+visible="false"
+></a-entity>
+
+</template>
