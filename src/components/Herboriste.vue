@@ -57,10 +57,10 @@ function grabTheThing(evt) {
 
   <a-text 
   id="text-vendeur"
-  value="Bonjour, que puis-je faire pour vous ?" 
+  value="How can I help you?" 
     width="1" 
     color="#FFF" 
-    position="-3.188 2.043 0.054" 
+    position="-3.188 2.043 -0.104" 
     rotation="0 90 0" 
     scale="1 1 1">
   </a-text>
@@ -75,10 +75,43 @@ function grabTheThing(evt) {
   scale="20 20 20"
   ></a-entity>
 
-    <a-text value="potion de soin" 
+    <a-text value="Healing potion" 
     width="1" 
     color="#FFF" 
-    position="-1.819 1.649 0.977" 
+    position="-1.839 1.649 0.977" 
+    rotation="0 -180 0" 
+    scale="1 1 1">
+  </a-text>
+
+  <a-text value="Invisibility Elixir" 
+    width="1" 
+    color="#FFF" 
+    position="-2.055 1.159 0.977" 
+    rotation="0 -180 0" 
+    scale="1 1 1">
+  </a-text>
+
+  <a-text value="Fire Resistance Brew" 
+    width="1" 
+    color="#FFF" 
+    position="-0.956 1.649 0.977" 
+    rotation="0 -180 0" 
+    scale="1 1 1">
+  </a-text>
+
+  <a-text value="Potion of 
+  Levitation" 
+    width="1" 
+    color="#FFF" 
+    position="-1.536 1.649 0.977" 
+    rotation="0 -180 0" 
+    scale="1 1 1">
+  </a-text>
+  
+  <a-text value="Strength Serum" 
+    width="1" 
+    color="#FFF" 
+    position="-1.425 1.223 0.977" 
     rotation="0 -180 0" 
     scale="1 1 1">
   </a-text>
@@ -92,9 +125,10 @@ function grabTheThing(evt) {
   />
 
   <PortalTeleporter
-  label="Back to main room"
+  label="Click to go back to 
+  the village"
   material="opacity: 0.0; transparent: true"
-  position="0 1 0"
+  position="0 1.15 0.1"
   rotation="0 -90 0"
   :rot="180"
   :x="17.5"

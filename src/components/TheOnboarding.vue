@@ -23,18 +23,18 @@ function enterScene() {
       <button v-if="loaded" @click="enterScene()">Enter scene</button>
       <div class="licences">
         <section>
-          <h4>Contexte du jeu</h4>
-          <p>Dans la quiétude du village, un événement inouï bouleverse la routine paisible des habitants : 
-            un portail mystérieux apparaît soudainement, non loin des réserves de nourriture des paysans. 
-            Un dragon, s'installe à proximité, son regard perçant fixé sur quiconque s'approche trop près. 
-            Sa présence imposante et son comportement protecteur rendent évident qu'il n'est pas là pour les vivres,
-            mais pour une raison bien plus personnelle : protéger le portail.</p>
+          <h4>Context of the game</h4>
+          <p>In the quiet of the village, an unprecedented event disrupts the peaceful routine of the inhabitants: 
+            A mysterious portal suddenly appears, not far from the farmers' food stores. 
+            A dragon settles nearby, its piercing gaze fixed on anyone who gets too close. 
+            Its imposing presence and protective demeanour make it clear that it's not here for the food,
+            but for a much more personal reason: to protect the gate.</p>
             
             <p>
-              Nichée au cœur de la forêt qui encercle le village vit une jeune fille connue pour son étonnante capacité à communiquer avec la nature. Vous vous identifiez à ce personnage.
-              Votre relation exceptionnelle avec les animaux vous donne la faculté de saisir leurs sentiments et leurs desseins. Fréquentant le marché du village 
-              chaque semaine, vous êtes rapidement confrontée à l'étrange phénomène du portail et à la présence imposante du dragon. Loin de percevoir 
-              cette créature comme une menace, vous y voyez un être sublime et angoissé, dévoué à la protection du portail.
+              Nestling in the heart of the forest that surrounds the village lives a young girl known for her astonishing ability to communicate with nature. You identify with this character.
+              Your exceptional relationship with animals gives you the ability to grasp their feelings and intentions. As a weekly visitor to the village market 
+              every week, you soon come face to face with the strange phenomenon of the portal and the imposing presence of the dragon. Far from seeing this creature 
+              creature as a threat, you see it as a sublime, anguished being, devoted to protecting the portal.
             </p>
             <br>
             <br>

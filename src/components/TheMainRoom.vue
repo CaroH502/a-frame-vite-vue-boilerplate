@@ -91,8 +91,7 @@ defineProps({
   >
   <a-text 
   id="texte-quête-1"
-  text-design="value: Constatant que le dragon est blessé à la patte, 
-  vous vous rendez chez l'herboriste du village.; nbreLines: 2"
+  text-design="value: Noticing that the dragon's leg is injured, you go to the village herbalist.; nbreLines: 2"
   width="2" 
   color="#FFF" 
   position="-75.255 2.5 -9.521" 
@@ -106,10 +105,12 @@ defineProps({
 <a-text 
 v-if="isCorrectItemDropped"
 id="texte-potion"
-text-design="value: Merci de m'avoir soigné ! Je te fais confiance à présent, je protège ce portail, 
-car mon œuf a été catapulté dans une autre dimension par l'intermédiaire du portail derrière moi.
-Ceci est l'œuvre d'un magicien complice de chevaliers avides qui convoitaient mon trésor. 
-Ils ont utilisé mon oeuf comme diversion pour piller mes richesses.; nbreLines: 4"
+text-design="value: Thank you for looking after me! I trust you now, I'm protecting this portal, 
+for my egg has been catapulted into another dimension through the portal behind me.
+This is the work of a magician in league with greedy knights who coveted my treasure. 
+They used my egg as a diversion to plunder my riches.
+Can you retrieve my egg for me? I can't go through the portal because of my size.; 
+nbreLines: 5"
 width="2" 
 color="#FFF" 
 position="-75.128 2.5 20.561" 
@@ -123,8 +124,8 @@ opacity="0.7"
 <a-text 
 v-if="isEggDropped"
 id="texte-fin"
-text-design="value:Merci d'avoir récupéré mon oeuf.
-En signe de gratitude, je serai le gardien éternel de votre village. ; nbreLines: 2"
+text-design="value: Thank you for recovering my egg.
+As a sign of my gratitude, I will be the eternal guardian of your village. ; nbreLines: 2"
 width="2" 
 color="#FFF" 
 position="-72.322 2.5 17.033" 

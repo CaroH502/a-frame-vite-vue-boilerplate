@@ -73,7 +73,7 @@ function dropTheThing(evt) {
   
   <a-text 
   id="text-recup-oeuf"
-  value="Trouver et ramener l'oeuf au dragon" 
+  value="Find the egg and take it back to the dragon. Put it between his paws" 
   width="2" 
   color="#FFF" 
   position="-14.113 3.75 -9" 
