@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue';
 import TheCameraRig from './TheCameraRig.vue';
 import PortalTeleporter from './PortalTeleporter.vue';
-import TheMainRoom from './TheMainRoom.vue';
+import TheMedievalVillage from './TheMedievalVillage.vue';
 import Herboriste from './Herboriste.vue';
 import Mountains from './Mountains.vue';
 //ne pas oublier d'import  le duplicate-me.js
@@ -89,7 +89,7 @@ const allAssetsLoaded = ref(false);
   
   <template v-if="allAssetsLoaded">
     
-    <TheMainRoom :scale="scale" />
+    <TheMedievalVillage :scale="scale" />
     <Herboriste /> 
     <Mountains />
   </template>
