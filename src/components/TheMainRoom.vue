@@ -202,6 +202,14 @@ clickable
 @click="evt => grabTheThing(evt)"
 ></a-box> 
 
+<a-sphere 
+id="blood"
+color="red" 
+radius="5"
+scale="0.020 0.020 0.020"
+position="-75.233 1.296 20.423">
+</a-sphere>
+
 <a-entity
 id="drop-zone-left"
 geometry="primitive: sphere; phiLength: 180; radius: 0.5; thetaLength: 90;"
