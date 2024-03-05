@@ -6,7 +6,7 @@ import { copyPosition, copyRotation } from '../utils/aframe.js';
 import '../aframe/bind-position.js';
 import '../aframe/bind-rotation.js';
 
-const isCorrectItemDropped = ref(false);
+const isPotionDropped = ref(false);
 const isEggDropped = ref(false);
 
 const clouds = ref([
@@ -76,7 +76,7 @@ function grabTheThing(evt) {
   }
   el.dataset.grabbed = true;
   delete el.dataset.dropped;
-  checkItemInDropZone('drop-zone-left', 'potion', isCorrectItemDropped);
+  checkItemInDropZone('drop-zone-left', 'potion', isPotionDropped);
   checkItemInDropZone('drop-zone-left-green', 'oeuf', isEggDropped);
 }
 
@@ -101,7 +101,7 @@ function dropTheThing(evt) {
   delete grabbedEl.dataset.grabbed;
   
   // Mise à jour de la visibilité du texte basée uniquement sur la position de la potion
-  checkItemInDropZone('drop-zone-left', 'potion', isCorrectItemDropped);
+  checkItemInDropZone('drop-zone-left', 'potion', isPotionDropped);
   checkItemInDropZone('drop-zone-left-green', 'oeuf', isEggDropped);
 }
 
@@ -129,7 +129,7 @@ defineProps({
   shadow="cast: true; receive: true"
   >
   <a-text 
-  v-if="!isCorrectItemDropped"
+  v-if="!isPotionDropped"
   id="texte-quête-1"
   text-design="value: Noticing that the dragon's leg is injured, you go to the village herbalist.; nbreLines: 2"
   width="2" 
@@ -143,7 +143,7 @@ defineProps({
 
 
 <a-text 
-v-if="isCorrectItemDropped && !isEggDropped"
+v-if="isPotionDropped && !isEggDropped"
 id="texte-potion"
 text-design="value: Thank you for looking after me! I trust you now, I'm protecting this portal, 
 for my egg has been catapulted into another dimension through the portal behind me.
@@ -205,7 +205,7 @@ scale="20 20 20"
 
 
 <a-sphere 
-v-if="!isCorrectItemDropped"
+v-if="!isPotionDropped"
 id="blood"
 color="red" 
 radius="5"
@@ -241,7 +241,7 @@ scale="0.6 0.6 0.6">
 </a-entity>
 
 <PortalTeleporter
-v-if="isCorrectItemDropped"
+v-if="isPotionDropped"
 label="Get the dragon's egg
 Click to enter"
 scale="1.2 1.3 1.2"
