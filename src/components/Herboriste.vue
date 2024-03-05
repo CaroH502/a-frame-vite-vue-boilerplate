@@ -33,28 +33,6 @@ function grabTheThing(evt) {
   el.dataset.grabbed = true;
   delete el.dataset.dropped;
 }
-
-function dropTheThing(evt) {
-  const grabbedEl = document.querySelector('[data-grabbed]');
-  // if nothing grabbed, return
-  if (!grabbedEl) return;
-  
-  //drop it
-  grabbedEl.removeAttribute('bind-position');
-  grabbedEl.removeAttribute('bind-rotation');
-  copyPosition(evt.target, grabbedEl);
-  copyRotation(evt.target, grabbedEl);
-  delete grabbedEl.dataset.grabbed;
-  
-  const dropZoneId = evt.target.id;
-  // if something was in the drop zone, grab it
-  const elInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"]`);
-  if (elInDropZone) {
-    grabTheThing({ target: elInDropZone });
-  };
-  
-  grabbedEl.dataset.dropped = dropZoneId;
-}
 </script>
 
 <template>

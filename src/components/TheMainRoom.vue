@@ -1,14 +1,10 @@
 <script setup>
 import { ref } from 'vue';
-//import { randomHsl } from '../utils/color.js';
-//import BoxColorChanging from './BoxColorChanging.vue';
+import '../aframe/text-design.js';
 import PortalTeleporter from './PortalTeleporter.vue';
 import { copyPosition, copyRotation } from '../utils/aframe.js';
 import '../aframe/bind-position.js';
 import '../aframe/bind-rotation.js';
-
-//import ExitDoor from "./ExitDoor.vue";
-//import '../aframe/life-like-automaton.js';
 
 const isCorrectItemDropped = ref(false);
 const isEggDropped = ref(false);
@@ -42,96 +38,93 @@ function grabTheThing(evt) {
   el.dataset.grabbed = true;
   delete el.dataset.dropped;
   checkItemInDropZone('drop-zone-left', 'potion', isCorrectItemDropped);
-  checkItemInDropZone('drop-zone-left-green', 'oeuf', isEggDropped);}
+  checkItemInDropZone('drop-zone-left-green', 'oeuf', isEggDropped);
+}
+
+function dropTheThing(evt) {
+  const grabbedEl = document.querySelector('[data-grabbed]');
+  if (!grabbedEl) return;
   
-  function dropTheThing(evt) {
-    const grabbedEl = document.querySelector('[data-grabbed]');
-    if (!grabbedEl) return;
-    
-    const dropZoneId = evt.target.id; // L'ID de la zone où l'objet est déposé
-    
-    // Vérifier si un objet est déjà présent dans la zone de dépose et le nettoyer
-    const elInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"]`);
-    if (elInDropZone) {
-      elInDropZone.removeAttribute('data-dropped');
-    }
-    
-    // Mettre à jour la position et la rotation de l'objet saisi et le marquer comme déposé
-    grabbedEl.removeAttribute('bind-position');
-    grabbedEl.removeAttribute('bind-rotation');
-    copyPosition(evt.target, grabbedEl);
-    copyRotation(evt.target, grabbedEl);
-    grabbedEl.dataset.dropped = dropZoneId;
-    delete grabbedEl.dataset.grabbed;
-    
-    // Mise à jour de la visibilité du texte basée uniquement sur la position de la potion
-    checkItemInDropZone('drop-zone-left', 'potion', isCorrectItemDropped);
-    checkItemInDropZone('drop-zone-left-green', 'oeuf', isEggDropped);}
-    
-    function checkItemInDropZone(dropZoneId, itemId, visibilityRef) {
-      // Vérifier si l'objet spécifié est déposé dans la zone de dépôt spécifiée
-      const itemInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"][id="${itemId}"]`);
-      visibilityRef.value = !!itemInDropZone; // Met à jour la variable réactive basée sur la présence de l'objet
-    }
-    
-    
-    
-    
-    
-    
-    defineProps({
-      scale: Number,
-    });
-    
-    //const colorBoxLeft = ref(randomHsl());
-    //const colorBoxRight = ref(randomHsl());
-  </script>
+  const dropZoneId = evt.target.id; // L'ID de la zone où l'objet est déposé
   
-  <template>  
-    <a-light type="ambient" color="#FAE6B8"></a-light>
-    <a-light type="directional" color="#FFF" intensity="1" position="-1 1 1" target="#target" castShadow="true"></a-light>
-    
-    <a-entity
-    gltf-model="#village"
-    position="75 -0.5 11"
-    rotation="0 0 0"
-    scale="0.99 0.99 0.99"
-    shadow="cast: true; receive: true"
-    >
-    <a-text 
-    id="texte-quête-1"
-    value="Constatant que le dragon est blessé à la patte, 
-    vous vous rendez chez l'herboriste du village."
-    width="2" 
-    color="#FFF" 
-    position="-75.255 2.5 -9.521" 
-    rotation="0 -180 0" 
-    scale="1 1 1"
-    background-color="#000"
-    opacity="0.7">
-  </a-text>
+  // Vérifier si un objet est déjà présent dans la zone de dépose et le nettoyer
+  const elInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"]`);
+  if (elInDropZone) {
+    elInDropZone.removeAttribute('data-dropped');
+  }
   
+  // Mettre à jour la position et la rotation de l'objet saisi et le marquer comme déposé
+  grabbedEl.removeAttribute('bind-position');
+  grabbedEl.removeAttribute('bind-rotation');
+  copyPosition(evt.target, grabbedEl);
+  copyRotation(evt.target, grabbedEl);
+  grabbedEl.dataset.dropped = dropZoneId;
+  delete grabbedEl.dataset.grabbed;
+  
+  // Mise à jour de la visibilité du texte basée uniquement sur la position de la potion
+  checkItemInDropZone('drop-zone-left', 'potion', isCorrectItemDropped);
+  checkItemInDropZone('drop-zone-left-green', 'oeuf', isEggDropped);
+}
+
+function checkItemInDropZone(dropZoneId, itemId, visibilityRef) {
+  // Vérifier si l'objet spécifié est déposé dans la zone de dépôt spécifiée
+  const itemInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"][id="${itemId}"]`);
+  visibilityRef.value = !!itemInDropZone; // Met à jour la variable réactive basée sur la présence de l'objet
+}
+
+defineProps({
+  scale: Number,
+});
+
+</script>
+
+<template>  
+  <a-light type="ambient" color="#FAE6B8"></a-light>
+  <a-light type="directional" color="#FFF" intensity="1" position="-1 1 1" target="#target" castShadow="true"></a-light>
+  
+  <a-entity
+  gltf-model="#village"
+  position="75 -0.5 11"
+  rotation="0 0 0"
+  scale="0.99 0.99 0.99"
+  shadow="cast: true; receive: true"
+  >
   <a-text 
-  v-if="isCorrectItemDropped"
-  id="texte-potion"
-  value="Merci de m'avoir soigné ! Je te fais confiance à présent, je protège ce portail, 
-  car mon œuf a été catapulté dans une autre dimension par l'intermédiaire du portail derrière moi.
-  Ceci est l'œuvre d'un magicien complice de chevaliers avides qui convoitaient mon trésor., 
-  Ils ont utilisé mon oeuf comme diversion pour piller mes richesses."
-  width="2" 
-  color="#FFF" 
-  position="-75.128 2.5 20.561" 
-  rotation="0 -180 0" 
-  scale="1 1 1"
-  background-color="#000"
-  opacity="0.7">
+id="texte-quête-1"
+text-design="value: Constatant que le dragon est blessé à la patte, 
+vous vous rendez chez l'herboriste du village.; nbreLines: 2"
+width="2" 
+color="#FFF" 
+position="-75.255 2.5 -9.521" 
+rotation="0 -180 0" 
+scale="1 1 1"
+background-color="#000"
+opacity="0.7">
+</a-text>
+
+
+<a-text 
+v-if="isCorrectItemDropped"
+id="texte-potion"
+text-design="value: Merci de m'avoir soigné ! Je te fais confiance à présent, je protège ce portail, 
+car mon œuf a été catapulté dans une autre dimension par l'intermédiaire du portail derrière moi.
+Ceci est l'œuvre d'un magicien complice de chevaliers avides qui convoitaient mon trésor. 
+Ils ont utilisé mon oeuf comme diversion pour piller mes richesses.; nbreLines: 4"
+width="2" 
+color="#FFF" 
+position="-75.128 2.5 20.561" 
+rotation="0 -180 0" 
+scale="1 1 1"
+background-color="#000"
+opacity="0.7"
+>
 </a-text>
 
 <a-text 
 v-if="isEggDropped"
 id="texte-fin"
-value="Merci d'avoir récupéré mon oeuf.
-En signe de gratitude, je serai le gardien éternel de votre village"
+text-design="value:Merci d'avoir récupéré mon oeuf.
+En signe de gratitude, je serai le gardien éternel de votre village. ; nbreLines: 2"
 width="2" 
 color="#FFF" 
 position="-72.322 2.5 17.033" 
@@ -140,7 +133,6 @@ scale="1 1 1"
 background-color="#000"
 opacity="0.7">
 </a-text>
-
 
 <a-entity
 id="wall"
@@ -190,6 +182,16 @@ rotation="0 -55 0"
 scale="0.725 0.55 0.49"
 />
 
+<a-entity
+  id="potion"
+  gltf-model="#potion"
+  clickable
+  @click="evt => grabTheThing(evt)"
+  position="-73.331 1.082 -7.89"
+  rotation="0 90 0"
+  scale="20 20 20"
+  ></a-entity>
+
 <a-box
 id="box-1-grabbable"
 color="red"
@@ -202,9 +204,10 @@ clickable
 <a-entity
 id="drop-zone-left"
 geometry="primitive: sphere; phiLength: 180; radius: 0.5; thetaLength: 90;"
+amaterial="opacity: 0.0; transparent: true"
 material="color: blue; side: double"
-position="-75.211 1.177 20.11"
-rotation="90 0 0"
+position="-75.211 1.391 19.969"
+rotation="120 0 0"
 clickable
 @click="evt => dropTheThing(evt)"
 ></a-entity>
@@ -214,7 +217,7 @@ id="drop-zone-left-green"
 geometry="primitive: sphere; phiLength: 180; radius: 0.5; thetaLength: 90;"
 material="color: green; side: double"
 position="-73.057 1.203 16.904"
-rotation="90 0 0"
+rotation="180 -180 0"
 clickable
 @click="evt => dropTheThing(evt)"
 ></a-entity>
