@@ -153,7 +153,6 @@ rotation="0 -90 0"
 />
 </a-entity>
 
-
 <a-entity
 data-role="nav-mesh"
 geometry="primitive: plane; height: 3; width: 3"

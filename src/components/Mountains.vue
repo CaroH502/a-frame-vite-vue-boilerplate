@@ -32,28 +32,6 @@ function grabTheThing(evt) {
   delete el.dataset.dropped;
 }
 
-function dropTheThing(evt) {
-  const grabbedEl = document.querySelector('[data-grabbed]');
-  // if nothing grabbed, return
-  if (!grabbedEl) return;
-  
-  //drop it
-  grabbedEl.removeAttribute('bind-position');
-  grabbedEl.removeAttribute('bind-rotation');
-  copyPosition(evt.target, grabbedEl);
-  copyRotation(evt.target, grabbedEl);
-  delete grabbedEl.dataset.grabbed;
-  
-  const dropZoneId = evt.target.id;
-  // if something was in the drop zone, grab it
-  const elInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"]`);
-  if (elInDropZone) {
-    grabTheThing({ target: elInDropZone });
-  };
-  
-  grabbedEl.dataset.dropped = dropZoneId;
-}
-
 </script>
 
 <template>
@@ -105,8 +83,6 @@ scale="0.2 0.2 0.2">
 </a-entity>
 </a-entity>
 
-<!-- Physic room navigation mesh -->
-
 <a-entity
 id="nav-mesh-mountains"
 geometry="primitive: plane; height: 65; width: 45"
@@ -117,40 +93,4 @@ material="color: yellow"
 visible="false"
 ></a-entity>
 
-<!-- Physic room floor & walls -->
-<!--<a-entity position="0 199.6 0" visible="false">
-  <a-entity
-  geometry="primitive: plane; height: 9.1; width: 9.1"
-  rotation="-90 0 0"
-  material="color: purple"
-  physx-body="type: static"
-  ></a-entity>
-  <a-entity
-  geometry="primitive: plane; height: 6.4; width: 9.1"
-  position="0 0 -4.45"
-  material="color: purple"
-  physx-body="type: static"
-  ></a-entity>
-  <a-entity
-  geometry="primitive: plane; height: 6.4; width: 9.1"
-  position="0 0 4.45"
-  rotation="0 180 00"
-  material="color: purple"
-  physx-body="type: static"
-  ></a-entity>
-  <a-entity
-  geometry="primitive: plane; height: 6.4; width: 9.1"
-  position="4.45 0 0"
-  rotation="0 -90 0"
-  material="color: purple"
-  physx-body="type: static"
-  ></a-entity>
-  <a-entity
-  geometry="primitive: plane; height: 6.4; width: 9.1"
-  position="-4.45 0 0"
-  rotation="0 90 0"
-  material="color: purple"
-  physx-body="type: static"
-  ></a-entity>
-</a-entity>-->
 </template>
