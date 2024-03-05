@@ -22,9 +22,17 @@ AFRAME.registerComponent("text-design", {
   
       text.setAttribute("geometry", `primitive: plane; width: ${data.width}; height: ${height}`);
   
-      text.setAttribute("material", "color: black; opacity: 0.35; side: double; transparent: true;");
-  
+      text.setAttribute("material", "color: black; opacity: 0; side: double; transparent: true;");
+
       el.appendChild(text);
+
+      text.setAttribute("animation", {
+        property: "material.opacity",
+        to: 0.50,
+        dur: 1500, // Durée de 1000 ms = 1 seconde
+        easing: "easeInOutQuad"
+      });
+  
     }
   });
   

@@ -90,16 +90,16 @@ defineProps({
   shadow="cast: true; receive: true"
   >
   <a-text 
-id="texte-quête-1"
-text-design="value: Constatant que le dragon est blessé à la patte, 
-vous vous rendez chez l'herboriste du village.; nbreLines: 2"
-width="2" 
-color="#FFF" 
-position="-75.255 2.5 -9.521" 
-rotation="0 -180 0" 
-scale="1 1 1"
-background-color="#000"
-opacity="0.7">
+  id="texte-quête-1"
+  text-design="value: Constatant que le dragon est blessé à la patte, 
+  vous vous rendez chez l'herboriste du village.; nbreLines: 2"
+  width="2" 
+  color="#FFF" 
+  position="-75.255 2.5 -9.521" 
+  rotation="0 -180 0" 
+  scale="1 1 1"
+  background-color="#000"
+  opacity="0.7">
 </a-text>
 
 
@@ -183,14 +183,14 @@ scale="0.725 0.55 0.49"
 />
 
 <a-entity
-  id="potion"
-  gltf-model="#potion"
-  clickable
-  @click="evt => grabTheThing(evt)"
-  position="-73.331 1.082 -7.89"
-  rotation="0 90 0"
-  scale="20 20 20"
-  ></a-entity>
+id="potion"
+gltf-model="#potion"
+clickable
+@click="evt => grabTheThing(evt)"
+position="-73.331 1.082 -7.89"
+rotation="0 90 0"
+scale="20 20 20"
+></a-entity>
 
 <a-box
 id="box-1-grabbable"
