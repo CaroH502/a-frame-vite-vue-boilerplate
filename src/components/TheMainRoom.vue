@@ -9,6 +9,45 @@ import '../aframe/bind-rotation.js';
 const isCorrectItemDropped = ref(false);
 const isEggDropped = ref(false);
 
+const clouds = ref([
+{
+  id: "big-cloud",
+  model: "#cloud",
+  position: "91.440 165.84 114.9",
+  rotation: "0 90 0",
+  scale: "3 1 3",
+},
+{
+  id: "small-cloud",
+  model: "#cloud",
+  position: "-38.055 71.151 38.018",
+  rotation: "0 70 0",
+  scale: "1 1 1",
+},
+{
+  id: "cloud-castle",
+  model: "#cloud",
+  position: "-30.78353 24.46236 52.10729",
+  rotation: "0 29.999999999999996 0",
+  scale: "0.5 0.4 0.8",
+},
+{
+  id: "cloud-4",
+  model: "#cloud",
+  position: "-76.82733 17.36987 28.40477",
+  rotation: "0 66 0",
+  scale: "0.445 0.34 0.8",
+},
+{
+  id: "cloud-5",
+  model: "#cloud",
+  position: "-116.47261 11.05674 97.84924",
+  rotation: "0 -55 0",
+  scale: "0.725 0.55 0.49",
+}
+]);
+
+
 function grabTheThing(evt) {
   // if something already grabbed, switch it
   const el = evt.target;
@@ -90,6 +129,7 @@ defineProps({
   shadow="cast: true; receive: true"
   >
   <a-text 
+  v-if="!isCorrectItemDropped"
   id="texte-quête-1"
   text-design="value: Noticing that the dragon's leg is injured, you go to the village herbalist.; nbreLines: 2"
   width="2" 
@@ -103,7 +143,7 @@ defineProps({
 
 
 <a-text 
-v-if="isCorrectItemDropped"
+v-if="isCorrectItemDropped && !isEggDropped"
 id="texte-potion"
 text-design="value: Thank you for looking after me! I trust you now, I'm protecting this portal, 
 for my egg has been catapulted into another dimension through the portal behind me.
@@ -144,44 +184,14 @@ scale="1 1 1"
 />
 
 <a-entity
-id="big-cloud"
-gltf-model="#cloud"
-position="91.440 165.84 114.9"
-rotation="0 90 0"
-scale="3 1 3"
-/>
-
-<a-entity
-id="small-cloud"
-gltf-model="#cloud"
-position="-38.055 71.151 38.018"
-rotation="0 70 0"
-scale="1 1 1"
-/>
-
-<a-entity
-id="cloud-castle"
-gltf-model="#cloud"
-position="-30.78353 24.46236 52.10729" 
-rotation="0 29.999999999999996 0" 
-scale="0.5 0.4 0.8"
-/>
-
-<a-entity
-id="cloud-4"
-gltf-model="#cloud"
-position="-76.82733 17.36987 28.40477" 
-rotation="0 66 0" 
-scale="0.445 0.34 0.8"
-/>
-
-<a-entity
-id="cloud-5"
-gltf-model="#cloud"
-position="-116.47261 11.05674 97.84924" 
-rotation="0 -55 0" 
-scale="0.725 0.55 0.49"
-/>
+v-for="cloud in clouds"
+:key="cloud.id"
+:id="cloud.id"
+:gltf-model="cloud.model"
+:position="cloud.position"
+:rotation="cloud.rotation"
+:scale="cloud.scale"
+></a-entity>
 
 <a-entity
 id="potion"
@@ -193,14 +203,6 @@ rotation="0 90 0"
 scale="20 20 20"
 ></a-entity>
 
-<a-box
-id="box-1-grabbable"
-color="red"
-scale="0.3 0.3 0.3"
-position="-73.331 1.082 -7.918"
-clickable
-@click="evt => grabTheThing(evt)"
-></a-box> 
 
 <a-sphere 
 v-if="!isCorrectItemDropped"
