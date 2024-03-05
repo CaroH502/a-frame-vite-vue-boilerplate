@@ -203,6 +203,7 @@ clickable
 ></a-box> 
 
 <a-sphere 
+v-if="!isCorrectItemDropped"
 id="blood"
 color="red" 
 radius="5"
@@ -213,9 +214,8 @@ position="-75.233 1.296 20.423">
 <a-entity
 id="drop-zone-left"
 geometry="primitive: sphere; phiLength: 180; radius: 0.5; thetaLength: 90;"
-amaterial="opacity: 0.0; transparent: true"
-material="color: blue; side: double"
-position="-75.211 1.391 19.969"
+material="opacity: 0.0; transparent: true; side: double"
+position="-75.277 1.512 20"
 rotation="120 0 0"
 clickable
 @click="evt => dropTheThing(evt)"
@@ -224,7 +224,7 @@ clickable
 <a-entity
 id="drop-zone-left-green"
 geometry="primitive: sphere; phiLength: 180; radius: 0.5; thetaLength: 90;"
-material="color: green; side: double"
+material="opacity: 0.0; transparent: true; side: double"
 position="-73.057 1.203 16.904"
 rotation="180 -180 0"
 clickable
