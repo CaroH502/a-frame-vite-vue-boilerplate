@@ -44,6 +44,27 @@ const clouds = ref([
   position: "-116.47261 11.05674 97.84924",
   rotation: "0 -55 0",
   scale: "0.725 0.55 0.49",
+},
+{
+  id: "cloud-1-mountain",
+  model: "#cloud",
+  position: "-67.559 213.169 30.049",
+  rotation: "0 66 0",
+  scale: "0.445 0.34 0.8",
+},
+{
+  id: "cloud-2-mountain",
+  model: "#cloud",
+  position: "-49.98 209.259 -1.598",
+  rotation: "0 30 0",
+  scale: "0.2 0.2 0.2",
+},
+{
+  id: "cloud-3-mountain",
+  model: "#cloud",
+  position: "-112.87 212.29 -69.377",
+  rotation: "0 -55 0",
+  scale: "0.725 0.8 0.49",
 }
 ]);
 
