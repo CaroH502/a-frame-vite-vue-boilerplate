@@ -76,8 +76,8 @@ function grabTheThing(evt) {
   }
   el.dataset.grabbed = true;
   delete el.dataset.dropped;
-  checkItemInDropZone('drop-zone-left', 'potion', isPotionDropped);
-  checkItemInDropZone('drop-zone-left-green', 'oeuf', isEggDropped);
+  checkItemInDropZone('drop-zone-paw', 'potion', isPotionDropped);
+  checkItemInDropZone('drop-zone-between-paws', 'oeuf', isEggDropped);
 }
 
 function dropTheThing(evt) {
@@ -101,8 +101,8 @@ function dropTheThing(evt) {
   delete grabbedEl.dataset.grabbed;
   
   // Mise à jour de la visibilité du texte basée uniquement sur la position de la potion
-  checkItemInDropZone('drop-zone-left', 'potion', isPotionDropped);
-  checkItemInDropZone('drop-zone-left-green', 'oeuf', isEggDropped);
+  checkItemInDropZone('drop-zone-paw', 'potion', isPotionDropped);
+  checkItemInDropZone('drop-zone-between-paws', 'oeuf', isEggDropped);
 }
 
 function checkItemInDropZone(dropZoneId, itemId, visibilityRef) {
@@ -214,17 +214,17 @@ position="-75.233 1.296 20.423">
 </a-sphere>
 
 <a-entity
-id="drop-zone-left"
+id="drop-zone-paw"
 geometry="primitive: sphere; phiLength: 180; radius: 0.5; thetaLength: 90;"
 material="opacity: 0.0; transparent: true; side: double"
-position="-75.277 1.512 20"
+position="-75.277 1.616 20"
 rotation="120 0 0"
 clickable
 @click="evt => dropTheThing(evt)"
 ></a-entity>
 
 <a-entity
-id="drop-zone-left-green"
+id="drop-zone-between-paws"
 geometry="primitive: sphere; phiLength: 180; radius: 0.5; thetaLength: 90;"
 material="opacity: 0.0; transparent: true; side: double"
 position="-73.057 1.203 16.904"
