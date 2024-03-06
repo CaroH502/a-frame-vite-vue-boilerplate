@@ -64,7 +64,7 @@ const clouds = ref([
   model: "#cloud",
   position: "-112.87 212.29 -69.377",
   rotation: "0 -55 0",
-  scale: "0.725 0.8 0.49",
+  scale: "0.725 0.8",
 }
 ]);
 
@@ -124,6 +124,7 @@ function dropTheThing(evt) {
   // Mise à jour de la visibilité du texte basée uniquement sur la position de la potion
   checkItemInDropZone('drop-zone-paw', 'potion', isPotionDropped);
   checkItemInDropZone('drop-zone-between-paws', 'oeuf', isEggDropped);
+  
 }
 
 function checkItemInDropZone(dropZoneId, itemId, visibilityRef) {
@@ -149,6 +150,11 @@ defineProps({
   scale="0.99 0.99 0.99"
   shadow="cast: true; receive: true"
   >
+  
+  <!-- Changement de musique après avoir soigné le dragon-->
+  <a-entity v-if="!isPotionDropped" sound="src: #intro; volume:0.1; loop:true; autoplay: true; positional: false"></a-entity>
+  <a-entity v-if="isPotionDropped" sound="src: #egg-music; volume:0.1; loop:true; autoplay: true; positional: false"></a-entity>
+  
   <a-text 
   v-if="!isPotionDropped"
   id="texte-quête-1"

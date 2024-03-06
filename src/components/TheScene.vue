@@ -72,23 +72,27 @@ const allAssetsLoaded = ref(false);
     <img id="room-gol-out-texture" :src="`assets/main-room-from-gol-room.png`">
     <img id="room-physic-texture" :src="`assets/physicRoom.png`">
     <!-- Mes assets -->
-    <a-assest-item id="village" src="assets/medieval_castle_with_village.glb"></a-assest-item>
-    <a-assest-item id="portal" src="assets/portal.glb"></a-assest-item>
-    <a-assest-item id="dragon" src="assets/dragon.glb"></a-assest-item>
-    <a-assest-item id="store" src="assets/store.glb"></a-assest-item>
-    <a-assest-item id="vendeur" src="assets/vendeur.glb"></a-assest-item>
-    <a-assest-item id="potion" src="assets/potion.glb"></a-assest-item>
-    <a-assest-item id="mountains" src="assets/mountains.glb"></a-assest-item>
-    <a-assest-item id="oeuf" src="assets/oeuf.glb"></a-assest-item>
-    <a-assest-item id="porte" src="assets/porte.glb"></a-assest-item>
-    <a-assest-item id="wall" src="assets/wall.glb"></a-assest-item>
-    <a-assest-item id="cloud" src="assets/cloud.glb"></a-assest-item>
-
+    <a-asset-item  id="village" src="assets/medieval_castle_with_village.glb"></a-asset-item >
+    <a-asset-item  id="portal" src="assets/portal.glb"></a-asset-item >
+    <a-asset-item  id="dragon" src="assets/dragon.glb"></a-asset-item >
+    <a-asset-item  id="store" src="assets/store.glb"></a-asset-item >
+    <a-asset-item  id="vendeur" src="assets/vendeur.glb"></a-asset-item >
+    <a-asset-item  id="potion" src="assets/potion.glb"></a-asset-item >
+    <a-asset-item  id="mountains" src="assets/mountains.glb"></a-asset-item >
+    <a-asset-item  id="oeuf" src="assets/oeuf.glb"></a-asset-item >
+    <a-asset-item  id="porte" src="assets/porte.glb"></a-asset-item >
+    <a-asset-item  id="wall" src="assets/wall.glb"></a-asset-item >
+    <a-asset-item  id="cloud" src="assets/cloud.glb"></a-asset-item >
+    <a-asset-item  id="intro" src="assets/music1.ogg" preload="auto" response-type="arraybuffer" ></a-asset-item >
+    <!-- https://opengameart.org/content/for-the-king -->
+    <a-asset-item  id="egg-music" src="assets/music2.mp3" preload="auto" response-type="arraybuffer" ></a-asset-item >
+    <!-- https://opengameart.org/content/medieval-kings-feast -->
+    <a-asset-item  id="roar" src="assets/roar.mp3" preload="auto" response-type="arraybuffer" ></a-asset-item >
+    <!-- https://opengameart.org/content/ghost-monster-voice-moaning-growling -->
 
   </a-assets>
   
   <template v-if="allAssetsLoaded">
-    
     <TheMedievalVillage :scale="scale" />
     <Herboriste /> 
     <Mountains />
