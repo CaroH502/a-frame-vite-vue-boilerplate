@@ -1,11 +1,9 @@
 <script setup>
 import PortalTeleporter from './PortalTeleporter.vue';
-
 import '../aframe/life-like-automaton.js';
 import '../aframe/physx-force-pushable.js';
 import '../aframe/clickable.js';
 import '../aframe/simple-grab.js'
-
 </script>
 
 <template>
@@ -48,12 +46,12 @@ rotation="0 0 0"
 
 <a-entity
 id="oeuf"
+@grabbed="handleGrab" 
+simple-grab
 gltf-model="#oeuf"
 position="18.688 1.926 2.496"
 rotation="0 30 0"
 clickable
-@grabbed="handleGrab" 
-simple-grab
 scale="0.2 0.2 0.2">
 </a-entity>
 </a-entity>

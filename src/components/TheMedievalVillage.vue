@@ -2,7 +2,6 @@
 import { ref } from 'vue';
 import '../aframe/text-design.js';
 import PortalTeleporter from './PortalTeleporter.vue';
-import { copyPosition, copyRotation } from '../utils/aframe.js';
 import '../aframe/bind-position.js';
 import '../aframe/bind-rotation.js';
 import '../aframe/simple-grab.js'
