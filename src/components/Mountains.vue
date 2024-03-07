@@ -49,16 +49,33 @@ rotation="0 0 0"
 
 />
 
-<a-entity
-id="oeuf"
-@grabbed="handleGrab" 
-simple-grab
-gltf-model="#oeuf"
-position="18.688 1.926 2.496"
-rotation="0 30 0"
-clickable
-scale="0.2 0.2 0.2">
+  <!-- <a-entity
+  id="oeuf"
+  @grabbed="handleGrab" 
+  simple-grab
+  gltf-model="#oeuf"
+  position="18.688 1.926 2.496"
+  rotation="0 30 0"
+  
+  scale="0.2 0.2 0.2">
+  </a-entity> -->
+
+<a-entity   id="oeuf"
+  @grabbed="handleGrab" 
+  simple-grab
+  clickable
+  rotation="0 30 0"
+  position="18.688 1.926 2.496">
+
+  <a-entity
+  gltf-model="#oeuf"
+  position="0.5 0 0"
+  rotation="0 30 0"
+  clickable
+  scale="0.2 0.2 0.2">
+  </a-entity>
 </a-entity>
+
 </a-entity>
 
 <a-entity
