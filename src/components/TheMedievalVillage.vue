@@ -105,7 +105,9 @@ function dropTheThing(evt) {
   const grabbedEl = document.querySelector('[data-grabbed]');
   if (!grabbedEl) return;
   
+
   const dropZoneId = evt.target.id; // L'ID de la zone où l'objet est déposé
+  
   
   // Vérifier si un objet est déjà présent dans la zone de dépose et le nettoyer
   const elInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"]`);
@@ -117,7 +119,7 @@ function dropTheThing(evt) {
   grabbedEl.removeAttribute('bind-position');
   grabbedEl.removeAttribute('bind-rotation');
   copyPosition(evt.target, grabbedEl);
-  copyRotation(evt.target, grabbedEl);
+  copyRotation(evt.target, grabbedEl, true);
   grabbedEl.dataset.dropped = dropZoneId;
   delete grabbedEl.dataset.grabbed;
   
@@ -253,7 +255,7 @@ clickable
 <a-entity
 id="drop-zone-between-paws"
 geometry="primitive: sphere; phiLength: 180; radius: 0.5; thetaLength: 90;"
-material="opacity: 0.0; transparent: true; side: double"
+visible="false"
 position="-73.057 1.203 16.904"
 rotation="180 -180 0"
 clickable
