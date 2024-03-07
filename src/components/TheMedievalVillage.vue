@@ -255,7 +255,7 @@ clickable
 <a-entity
 id="drop-zone-between-paws"
 geometry="primitive: sphere; phiLength: 180; radius: 0.5; thetaLength: 90;"
-visible="false"
+material="opacity: 0.0; transparent: true; side: double"
 position="-73.057 1.203 16.904"
 rotation="180 -180 0"
 clickable
