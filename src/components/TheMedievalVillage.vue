@@ -5,9 +5,42 @@ import PortalTeleporter from './PortalTeleporter.vue';
 import { copyPosition, copyRotation } from '../utils/aframe.js';
 import '../aframe/bind-position.js';
 import '../aframe/bind-rotation.js';
+import '../aframe/simple-grab.js'
 
 const isPotionDropped = ref(false);
 const isEggDropped = ref(false);
+
+function handleGrab(event) {
+  console.log("Objet saisi:", event.detail.el);
+}
+
+function handleDrop(event) {
+  console.log("Objet déposé:", event.detail.droppedEl, "dans", event.detail.dropZone);
+  checkItemInDropZone(event.detail.dropZone.id, event.detail.droppedEl.id);
+}
+
+
+function checkItemInDropZone(dropZoneId, itemId) {
+  const itemInDropZone = document.querySelector(`#${dropZoneId} [data-dropped="${itemId}"]`);
+  if (dropZoneId === 'drop-zone-paw' && itemId === 'potion') {
+    console.log(dropZoneId)
+    console.log(itemId)
+    
+    //if isPotionDropped.value = true mettre à false et inversément
+    if(isPotionDropped.value === true) {
+      isPotionDropped.value = false;
+    } else {
+      isPotionDropped.value = true;
+    }
+    console.log(isPotionDropped.value)
+  } else if (dropZoneId === 'drop-zone-between-paws' && itemId === 'oeuf') {
+    if(isEggDropped.value === true) {
+      isEggDropped.value = false;
+    } else {
+      isEggDropped.value = true;
+    }
+  }
+}
 
 const clouds = ref([
 {
@@ -69,76 +102,15 @@ const clouds = ref([
 ]);
 
 
-function grabTheThing(evt) {
-  // if something already grabbed, switch it
-  const el = evt.target;
-  const dropZoneId = evt.target.id;
-  console.log('dropZoneId - grab', dropZoneId);
-  const grabbedEl = document.querySelector('[data-grabbed]');
+// function checkItemInDropZone(dropZoneId, itemId, visibilityRef) {
+  //   const itemInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"][id="${itemId}"]`);
+  //   visibilityRef.value = !!itemInDropZone; // Met à jour la variable réactive basée sur la présence de l'objet
+  // }
   
-  if (grabbedEl) {
-    grabbedEl.removeAttribute('bind-position');
-    grabbedEl.removeAttribute('bind-rotation');
-    copyPosition(el, grabbedEl);
-    copyRotation(el, grabbedEl);
-    delete grabbedEl.dataset.grabbed;
-    delete grabbedEl.dataset.dropped;
-    if (el.dataset.dropped) {
-      grabbedEl.dataset.dropped = el.dataset.dropped;
-    }   
-  }
+  defineProps({
+    scale: Number,
+  });
   
-  if (el.sceneEl.is('vr-mode')) {
-    el.setAttribute('bind-position', 'target: #hand-right');
-    el.setAttribute('bind-rotation', 'target: #hand-right convertToLocal: true');
-  } else {
-    el.setAttribute('bind-position', 'target: #dummy-hand-right');
-    el.setAttribute('bind-rotation', 'target: #dummy-hand-right; convertToLocal: true');
-  }
-  el.dataset.grabbed = true;
-  delete el.dataset.dropped;
-  checkItemInDropZone('drop-zone-paw', 'potion', isPotionDropped);
-  checkItemInDropZone('drop-zone-between-paws', 'oeuf', isEggDropped);
-}
-
-function dropTheThing(evt) {
-  const grabbedEl = document.querySelector('[data-grabbed]');
-  if (!grabbedEl) return;
-  
-
-  const dropZoneId = evt.target.id; // L'ID de la zone où l'objet est déposé
-  
-  
-  // Vérifier si un objet est déjà présent dans la zone de dépose et le nettoyer
-  const elInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"]`);
-  if (elInDropZone) {
-    elInDropZone.removeAttribute('data-dropped');
-  }
-  
-  // Mettre à jour la position et la rotation de l'objet saisi et le marquer comme déposé
-  grabbedEl.removeAttribute('bind-position');
-  grabbedEl.removeAttribute('bind-rotation');
-  copyPosition(evt.target, grabbedEl);
-  copyRotation(evt.target, grabbedEl, true);
-  grabbedEl.dataset.dropped = dropZoneId;
-  delete grabbedEl.dataset.grabbed;
-  
-  // Mise à jour de la visibilité du texte basée uniquement sur la position de la potion
-  checkItemInDropZone('drop-zone-paw', 'potion', isPotionDropped);
-  checkItemInDropZone('drop-zone-between-paws', 'oeuf', isEggDropped);
-  
-}
-
-function checkItemInDropZone(dropZoneId, itemId, visibilityRef) {
-  // Vérifier si l'objet spécifié est déposé dans la zone de dépôt spécifiée
-  const itemInDropZone = document.querySelector(`[data-dropped="${dropZoneId}"][id="${itemId}"]`);
-  visibilityRef.value = !!itemInDropZone; // Met à jour la variable réactive basée sur la présence de l'objet
-}
-
-defineProps({
-  scale: Number,
-});
-
 </script>
 
 <template>  
@@ -224,9 +196,10 @@ v-for="cloud in clouds"
 
 <a-entity
 id="potion"
+@grabbed="handleGrab" 
+simple-grab
 gltf-model="#potion"
 clickable
-@click="evt => grabTheThing(evt)"
 position="-73.331 1.082 -7.89"
 rotation="0 90 0"
 scale="20 20 20"
@@ -249,7 +222,9 @@ material="opacity: 0.0; transparent: true; side: double"
 position="-75.277 1.616 20"
 rotation="120 0 0"
 clickable
-@click="evt => dropTheThing(evt)"
+@dropped="handleDrop"
+simple-grab-drop-zone
+
 ></a-entity>
 
 <a-entity
@@ -259,7 +234,8 @@ material="opacity: 0.0; transparent: true; side: double"
 position="-73.057 1.203 16.904"
 rotation="180 -180 0"
 clickable
-@click="evt => dropTheThing(evt)"
+@dropped="handleDrop"
+simple-grab-drop-zone
 ></a-entity>
 
 <a-entity

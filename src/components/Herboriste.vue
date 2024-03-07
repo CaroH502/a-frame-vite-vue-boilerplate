@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from 'vue';
 import '../aframe/life-like-automaton.js';
-import { copyPosition, copyRotation } from '../utils/aframe.js';
 import '../aframe/bind-position.js';
 import '../aframe/bind-rotation.js';
 import '../aframe/text-design.js'
+import '../aframe/simple-grab.js'
 import PortalTeleporter from './PortalTeleporter.vue';
 
 //tableau de potions
@@ -50,36 +50,6 @@ const potions = ref([
   width: "1" 
 }
 ]);
-
-
-function grabTheThing(evt) {
-  // if something already grabbed, switch it
-  const el = evt.target;
-  const dropZoneId = evt.target.id;
-  console.log('dropZoneId - grab', dropZoneId);
-  const grabbedEl = document.querySelector('[data-grabbed]');
-  if (grabbedEl) {
-    grabbedEl.removeAttribute('bind-position');
-    grabbedEl.removeAttribute('bind-rotation');
-    copyPosition(el, grabbedEl);
-    copyRotation(el, grabbedEl);
-    delete grabbedEl.dataset.grabbed;
-    delete grabbedEl.dataset.dropped;
-    if (el.dataset.dropped) {
-      grabbedEl.dataset.dropped = el.dataset.dropped;
-    }
-  }
-  
-  if (el.sceneEl.is('vr-mode')) {
-    el.setAttribute('bind-position', 'target: #hand-right');
-    el.setAttribute('bind-rotation', 'target: #hand-right convertToLocal: true');
-  } else {
-    el.setAttribute('bind-position', 'target: #dummy-hand-right');
-    el.setAttribute('bind-rotation', 'target: #dummy-hand-right; convertToLocal: true');
-  }
-  el.dataset.grabbed = true;
-  delete el.dataset.dropped;
-}
 </script>
 
 <template>
@@ -116,7 +86,8 @@ function grabTheThing(evt) {
 id="potion"
 gltf-model="#potion"
 clickable
-@click="evt => grabTheThing(evt)"
+@grabbed="handleGrab" 
+simple-grab
 position="-1.966 1.184 1.128"
 rotation="0 90 0"
 scale="20 20 20"
