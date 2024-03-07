@@ -20,7 +20,6 @@ function handleDrop(event) {
 
 
 function checkItemInDropZone(dropZoneId, itemId) {
-  const itemInDropZone = document.querySelector(`#${dropZoneId} [data-dropped="${itemId}"]`);
   if (dropZoneId === 'drop-zone-paw' && itemId === 'potion') {
     console.log(dropZoneId)
     console.log(itemId)
@@ -125,8 +124,8 @@ const clouds = ref([
   >
   
   <!-- Changement de musique après avoir soigné le dragon-->
-  <a-entity v-if="!isPotionDropped" sound="src: #intro; volume:0.1; loop:true; autoplay: true; positional: false"></a-entity>
-  <a-entity v-if="isPotionDropped" sound="src: #egg-music; volume:0.1; loop:true; autoplay: true; positional: false"></a-entity>
+  <a-entity v-if="!isPotionDropped" sound="src: #intro; volume:0; loop:true; autoplay: true; positional: false"></a-entity>
+  <a-entity v-if="isPotionDropped" sound="src: #egg-music; volume:0; loop:true; autoplay: true; positional: false"></a-entity>
   
   <a-text 
   v-if="!isPotionDropped"

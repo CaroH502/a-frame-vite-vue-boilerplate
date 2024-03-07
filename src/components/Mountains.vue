@@ -4,6 +4,11 @@ import '../aframe/life-like-automaton.js';
 import '../aframe/physx-force-pushable.js';
 import '../aframe/clickable.js';
 import '../aframe/simple-grab.js'
+
+function handleGrab(event) {
+  console.log("Objet saisi:", event.detail.el);
+}
+
 </script>
 
 <template>

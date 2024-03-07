@@ -102,6 +102,8 @@ AFRAME.registerComponent('simple-grab', {
       }
       this.actualDropZone = null;
     }
+
+    //ajout
     this.el.emit('grabbed', { grabbedBy: this.grabbedBy, el: this.el });
   },
 
@@ -160,6 +162,7 @@ AFRAME.registerComponent('simple-grab-drop-zone', {
       this.droppedEl = null;
     }
 
+    //AJOUT
     if (currentGrab) {
         this.el.emit('dropped', { droppedEl: currentGrab, dropZone: this.el });
       }
