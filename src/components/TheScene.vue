@@ -111,7 +111,7 @@ const allAssetsLoaded = ref(false);
     -->
     <a-asset-item  id="porte" src="assets/porte.glb"></a-asset-item >
       <!--
-      Extracting an element from this asset using blender:
+      Extracting a door from this asset using blender:
       
       Title: Medieval castle with village
       Model source: https://sketchfab.com/3d-models/medieval-castle-with-village-5109b5e46e064790badecedf8f6d2ef6
@@ -120,7 +120,7 @@ const allAssetsLoaded = ref(false);
     -->
     <a-asset-item  id="wall" src="assets/wall.glb"></a-asset-item >
     <!--
-      Extracting an element from this asset using blender:
+      Extracting a wall from this asset using blender:
       
       Title: Medieval castle with village
       Model source: https://sketchfab.com/3d-models/medieval-castle-with-village-5109b5e46e064790badecedf8f6d2ef6
@@ -132,6 +132,15 @@ const allAssetsLoaded = ref(false);
       Title: Low Poly Cloud
       Model source: https://sketchfab.com/3d-models/low-poly-cloud-81910476b24d4fc5a73c908d6c2a38a2
       Model author: https://sketchfab.com/hyungjungkim (hyungjung kim )
+      Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
+    -->
+    <a-asset-item  id="pont" src="assets/pont.glb"></a-asset-item >
+     <!--
+      Extracting a bridge from this asset using blender:
+
+      Title: Mountain Scenario Low Poly
+      Model source: https://sketchfab.com/3d-models/mountain-scenario-low-poly-0b870e35b8334420ab73a2b8f6f141ab
+      Model author: https://sketchfab.com/tuturu (tuturu)
       Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
     -->
     <a-asset-item  id="intro" src="assets/music1.ogg" preload="auto" response-type="arraybuffer" ></a-asset-item >

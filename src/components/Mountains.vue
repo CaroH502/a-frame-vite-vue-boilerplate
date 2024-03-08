@@ -26,6 +26,14 @@ function handleGrab(event) {
   rotation="0 0 0"
   scale="0.5 0.5 0.5"> 
   ></a-entity>
+
+  <a-entity
+  id="pont"
+  gltf-model="#pont"
+  position="0.572 0.018 5.450"
+  rotation="0 180 0"
+  scale="1 1 1"
+  ></a-entity>
   
   <a-text 
   id="text-recup-oeuf"
