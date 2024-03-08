@@ -198,7 +198,9 @@ v-for="cloud in clouds"
 :scale="cloud.scale"
 ></a-entity>
 
-<a-entity
+<!-- ajout de l'item potion pour faciliter les tests -->
+
+<!-- <a-entity
 id="potion"
 @grabbed="handleGrab" 
 simple-grab
@@ -207,7 +209,7 @@ clickable
 position="-73.331 1.082 -7.89"
 rotation="0 90 0"
 scale="20 20 20"
-></a-entity>
+></a-entity> -->
 
 
 <a-sphere 

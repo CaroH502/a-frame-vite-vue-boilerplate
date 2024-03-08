@@ -1,7 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import TheCameraRig from './TheCameraRig.vue';
-import PortalTeleporter from './PortalTeleporter.vue';
 import TheMedievalVillage from './TheMedievalVillage.vue';
 import Herboriste from './Herboriste.vue';
 import Mountains from './Mountains.vue';
