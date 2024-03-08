@@ -4,6 +4,7 @@ import '../aframe/life-like-automaton.js';
 import '../aframe/physx-force-pushable.js';
 import '../aframe/clickable.js';
 import '../aframe/simple-grab.js'
+import '../aframe/text-design.js';
 
 function handleGrab(event) {
   console.log("Objet saisi:", event.detail.el);
@@ -30,15 +31,18 @@ function handleGrab(event) {
   id="text-recup-oeuf"
   value="Find the egg and take it back to the dragon. Put it between his paws" 
   width="2" 
+  text-design
   color="#FFF" 
-  position="-14.113 3.75 -9" 
+  position="-14.113 3.4 -8.480" 
   rotation="0 -180 0" 
-  scale="1 1 1">
+  scale="1 1 1"
+  background-color="#000"
+  opacity="0.7">
 </a-text>
 
 <PortalTeleporter
 id="portal-mountain"
-label="Back to the village 2"
+label="Back to the village"
 scale="1 1 1"
 material="opacity: 0.0; transparent: true"
 position="-14.876 3.135 -11.004"
@@ -64,7 +68,7 @@ rotation="0 0 0"
   @grabbed="handleGrab" 
   simple-grab
   clickable
-  rotation="0 30 0"
+  rotation="1.5 0 0"
   position="18.688 1.926 2.496">
 
   <a-entity

@@ -4,7 +4,8 @@ import '../aframe/text-design.js';
 import PortalTeleporter from './PortalTeleporter.vue';
 import '../aframe/bind-position.js';
 import '../aframe/bind-rotation.js';
-import '../aframe/simple-grab.js'
+import '../aframe/simple-grab.js';
+import '../aframe/listen-to.js'
 
 const isPotionDropped = ref(false);
 const isEggDropped = ref(false);
@@ -124,20 +125,23 @@ const clouds = ref([
   >
   
   <!-- Changement de musique après avoir soigné le dragon-->
-  <a-entity v-if="!isPotionDropped" sound="src: #intro; volume:0; loop:true; autoplay: true; positional: false"></a-entity>
-  <a-entity v-if="isPotionDropped" sound="src: #egg-music; volume:0; loop:true; autoplay: true; positional: false"></a-entity>
-  
-  <a-text 
-  v-if="!isPotionDropped"
-  id="texte-quête-1"
-  text-design="value: Noticing that the dragon's leg is injured, you go to the village herbalist.; nbreLines: 2"
-  width="2" 
-  color="#FFF" 
-  position="-75.255 2.5 -9.521" 
-  rotation="0 -180 0" 
-  scale="1 1 1"
-  background-color="#000"
-  opacity="0.7">
+  <a-entity v-if="!isPotionDropped" 
+  listen-to="target: a-scene; event: enter-scene; emit: play-sound;"
+  sound="src: #intro; volume:0; loop:true; autoplay: true; positional: false">
+</a-entity>
+<a-entity v-if="isPotionDropped" sound="src: #egg-music; volume:0; loop:true; autoplay: true; positional: false"></a-entity>
+
+<a-text 
+v-if="!isPotionDropped"
+id="texte-quete-1"
+text-design="value: Noticing that the dragon's leg is injured, you go to the village herbalist.; nbreLines: 2"
+width="2" 
+color="#FFF" 
+position="-75.255 2.150 -9.521" 
+rotation="0 -180 0" 
+scale="1 1 1"
+background-color="#000"
+opacity="0.7">
 </a-text>
 
 
@@ -152,7 +156,7 @@ Can you retrieve my egg for me? I can't go through the portal because of my size
 nbreLines: 5"
 width="2" 
 color="#FFF" 
-position="-75.128 2.5 20.561" 
+position="-75.128 2.150 20.561" 
 rotation="0 -180 0" 
 scale="1 1 1"
 background-color="#000"
@@ -167,7 +171,7 @@ text-design="value: Thank you for recovering my egg.
 As a sign of my gratitude, I will be the eternal guardian of your village. ; nbreLines: 2"
 width="2" 
 color="#FFF" 
-position="-72.322 2.5 17.033" 
+position="-72.322 2.150 17.033" 
 rotation="0 -180 0" 
 scale="1 1 1"
 background-color="#000"

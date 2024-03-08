@@ -48,48 +48,96 @@ const allAssetsLoaded = ref(false);
   autoLoad: true;
   delay: 1000;
   useDefaultScene: false;
-  wasmUrl: lib/physx.release.wasm;
-  "
+  wasmUrl: lib/physx.release.wasm;"
   >
   
   <a-assets @loaded="allAssetsLoaded = true">
-    <!--
-      Title: VR Gallery
-      Model source: https://sketchfab.com/3d-models/vr-gallery-1ac32ed62fdf424498acc146fad31f7e
-      Model author: https://sketchfab.com/mvrc.art (Maxim Mavrichev)
-      Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
-    -->
-    <a-asset-item id="room" src="assets/vr_gallery.glb"></a-asset-item>
-    <!--
-      Title: 3D Gallery for VR projects
-      Model source: https://sketchfab.com/3d-models/3d-gallery-for-vr-projects-68f77ed8558c4bd59e0a13e2cc9d1fd1
-      Model author: https://sketchfab.com/tekuto1s (tekuto1s)
-      Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
-    -->
-    <a-asset-item id="physic-room" src="assets/3d_gallery_for_vr_projects.glb"></a-asset-item>
-    <a-asset-item id="sound-1" response-type="arraybuffer" src="assets/sound1.mp3" preload="auto"></a-asset-item>
-    <img id="room-physic-out-texture" :src="`assets/main-room-from-physic-room.png`">
-    <img id="room-gol-out-texture" :src="`assets/main-room-from-gol-room.png`">
-    <img id="room-physic-texture" :src="`assets/physicRoom.png`">
     <!-- Mes assets -->
     <a-asset-item  id="village" src="assets/medieval_castle_with_village.glb"></a-asset-item >
-    <a-asset-item  id="portal" src="assets/portal.glb"></a-asset-item >
-    <a-asset-item  id="dragon" src="assets/dragon.glb"></a-asset-item >
+      <!--
+      Title: Medieval castle with village
+      Model source: https://sketchfab.com/3d-models/medieval-castle-with-village-5109b5e46e064790badecedf8f6d2ef6
+      Model author: https://sketchfab.com/liorvisbal (Liormax)
+      Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
+    -->
+      <a-asset-item  id="portal" src="assets/portal.glb"></a-asset-item >
+      <!--
+      Title: Portal Door
+      Model source: https://sketchfab.com/3d-models/mountain-scenario-low-poly-0b870e35b8334420ab73a2b8f6f141ab
+      Model author: https://sketchfab.com/artbake_graphics (Artbake Graphics)
+      Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
+    -->
+      <a-asset-item  id="dragon" src="assets/dragon.glb"></a-asset-item >
+      <!--
+      Title: LP Dragon
+      Model source: https://sketchfab.com/3d-models/portal-door-46983acd0eac4fd4a9bb206b1df029ba
+      Model author: https://sketchfab.com/liorvisbal (Liormax)
+      Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
+    -->
     <a-asset-item  id="store" src="assets/store.glb"></a-asset-item >
+      <!--
+      Title: Wizard's/Witch's house | Magic or Potion shop
+      Model source: https://sketchfab.com/3d-models/wizardswitchs-house-magic-or-potion-shop-9858d80ca7704938b0a39dfebdf3d4b7
+      Model author: https://sketchfab.com/captain0cake (captain0cake)
+      Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
+    -->
     <a-asset-item  id="vendeur" src="assets/vendeur.glb"></a-asset-item >
+      <!--
+      Title: Guest male 1 - Medieval Fantasy Challenge
+      Model source: https://sketchfab.com/3d-models/guest-male-1-medieval-fantasy-challenge-0e7c17cae64c4165aa181f5b20ef8816
+      Model author: https://sketchfab.com/SamuelLK (SamuelLK )
+      Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
+    -->
     <a-asset-item  id="potion" src="assets/potion.glb"></a-asset-item >
+          <!--
+      Title: Potion Low-Poly
+      Model source: https://sketchfab.com/3d-models/potion-low-poly-316d869dae794726a46afe13131bdd9a
+      Model author: https://sketchfab.com/cardosobel824 (Isabel Cardoso)
+      Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
+    -->
     <a-asset-item  id="mountains" src="assets/mountains.glb"></a-asset-item >
+    <!--
+      Title: Mountain Scenario Low Poly
+      Model source: https://sketchfab.com/3d-models/mountain-scenario-low-poly-0b870e35b8334420ab73a2b8f6f141ab
+      Model author: https://sketchfab.com/tuturu (tuturu)
+      Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
+    -->
     <a-asset-item  id="oeuf" src="assets/oeuf.glb"></a-asset-item >
+      <!--
+      Title: Dragon Egg LowPoly
+      Model source: https://sketchfab.com/3d-models/dragon-egg-lowpoly-dbf1dce0df2945abab58732490252612
+      Model author: https://sketchfab.com/SamuelLK (SamuelLK )
+      Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
+    -->
     <a-asset-item  id="porte" src="assets/porte.glb"></a-asset-item >
+      <!--
+      Extracting an element from this asset using blender:
+      
+      Title: Medieval castle with village
+      Model source: https://sketchfab.com/3d-models/medieval-castle-with-village-5109b5e46e064790badecedf8f6d2ef6
+      Model author: https://sketchfab.com/liorvisbal (Liormax)
+      Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
+    -->
     <a-asset-item  id="wall" src="assets/wall.glb"></a-asset-item >
-    <a-asset-item  id="cloud" src="assets/cloud.glb"></a-asset-item >
+    <!--
+      Extracting an element from this asset using blender:
+      
+      Title: Medieval castle with village
+      Model source: https://sketchfab.com/3d-models/medieval-castle-with-village-5109b5e46e064790badecedf8f6d2ef6
+      Model author: https://sketchfab.com/liorvisbal (Liormax)
+      Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
+    -->
+      <a-asset-item  id="cloud" src="assets/cloud.glb"></a-asset-item >
+      <!--
+      Title: Low Poly Cloud
+      Model source: https://sketchfab.com/3d-models/low-poly-cloud-81910476b24d4fc5a73c908d6c2a38a2
+      Model author: https://sketchfab.com/hyungjungkim (hyungjung kim )
+      Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
+    -->
     <a-asset-item  id="intro" src="assets/music1.ogg" preload="auto" response-type="arraybuffer" ></a-asset-item >
     <!-- https://opengameart.org/content/for-the-king -->
     <a-asset-item  id="egg-music" src="assets/music2.mp3" preload="auto" response-type="arraybuffer" ></a-asset-item >
     <!-- https://opengameart.org/content/medieval-kings-feast -->
-    <a-asset-item  id="roar" src="assets/roar.mp3" preload="auto" response-type="arraybuffer" ></a-asset-item >
-    <!-- https://opengameart.org/content/ghost-monster-voice-moaning-growling -->
-
   </a-assets>
   
   <template v-if="allAssetsLoaded">
