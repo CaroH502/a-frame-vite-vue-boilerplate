@@ -64,7 +64,8 @@ rotation="0 0 0"
   scale="0.2 0.2 0.2">
   </a-entity> -->
 
-<a-entity   id="oeuf"
+<a-entity
+  id="oeuf"
   @grabbed="handleGrab" 
   simple-grab
   clickable
@@ -85,7 +86,7 @@ rotation="0 0 0"
 <a-entity
 id="nav-mesh-mountains"
 geometry="primitive: plane; height: 65; width: 45"
-position="4.361 200.45 9.718"
+position="4.361 200.25 9.718"
 rotation="-90 0 0"
 data-role="nav-mesh"
 material="color: yellow"

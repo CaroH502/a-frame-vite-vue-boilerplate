@@ -138,6 +138,8 @@ const allAssetsLoaded = ref(false);
     <!-- https://opengameart.org/content/for-the-king -->
     <a-asset-item  id="egg-music" src="assets/music2.mp3" preload="auto" response-type="arraybuffer" ></a-asset-item >
     <!-- https://opengameart.org/content/medieval-kings-feast -->
+    <a-asset-item  id="end-music" src="assets/applause.wav" preload="auto" response-type="arraybuffer" ></a-asset-item >
+      <!-- https://opengameart.org/content/applause -->
   </a-assets>
   
   <template v-if="allAssetsLoaded">

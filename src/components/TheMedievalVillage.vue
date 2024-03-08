@@ -130,6 +130,8 @@ const clouds = ref([
   sound="src: #intro; volume:0.1; loop:true; on:play-sound; positional: false">
 </a-entity>
 <a-entity v-if="isPotionDropped" sound="src: #egg-music; volume:0.1; loop:true; autoplay: true; positional: false"></a-entity>
+<a-entity v-if="isEggDropped" sound="src: #end-music; volume:0.1; loop:false; autoplay: true; positional: false"></a-entity>
+
 
 <a-text 
 v-if="!isPotionDropped"
