@@ -127,9 +127,9 @@ const clouds = ref([
   <!-- Changement de musique après avoir soigné le dragon-->
   <a-entity v-if="!isPotionDropped" 
   listen-to="target: a-scene; event: enter-scene; emit: play-sound;"
-  sound="src: #intro; volume:0; loop:true; autoplay: true; positional: false">
+  sound="src: #intro; volume:0.1; loop:true; on:play-sound; positional: false">
 </a-entity>
-<a-entity v-if="isPotionDropped" sound="src: #egg-music; volume:0; loop:true; autoplay: true; positional: false"></a-entity>
+<a-entity v-if="isPotionDropped" sound="src: #egg-music; volume:0.1; loop:true; autoplay: true; positional: false"></a-entity>
 
 <a-text 
 v-if="!isPotionDropped"
